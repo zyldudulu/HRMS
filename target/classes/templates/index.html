@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" th:href="@{/asserts/img/basic/favicon.ico}" type="image/x-icon">
+    <title>Paper</title>
+    <!-- CSS -->
+    <script th:src="@{/asserts/js/jquery-1.10.2.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/asserts/css/app.css}">
+
+    <style>
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F8FA;
+            z-index: 9998;
+            text-align: center;
+        }
+
+        .plane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body class="light">
+<!-- Pre loader -->
+<div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="app">
+    <aside class="main-sidebar fixed offcanvas shadow">
+        <section class="sidebar">
+            <div class="w-80px mt-3 mb-3 ml-3">
+                <img th:src="@{/asserts/img/basic/logo.png}" alt="">
+            </div>
+            <div class="relative">
+                <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
+                   aria-controls="userSettingsCollapse" class="btn-fab btn-fab-sm fab-right fab-top btn-primary shadow1 ">
+                    <i class="icon icon-cogs"></i>
+                </a>
+                <div class="user-panel p-3 light mb-2">
+                    <div>
+                        <div class="float-left image">
+                            <a th:href="@{/user/admin/index}"><img class="user_avatar" th:src="@{/asserts/img/dummy/u2.png}" alt="User Image"></a>
+                        </div>
+                        <div class="float-left info">
+                            <h6 class="font-weight-light mt-2 mb-1">root</h6>
+                            <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="collapse multi-collapse" id="userSettingsCollapse">
+
+                        <div class="list-group mt-3 shadow">
+
+                            <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#user_change'" class="list-group-item list-group-item-action"><i class="icon icon-documents3 text-blue s-18"></i>
+                                修改密码</a>
+                            <a th:href="@{/user/logout}" class="list-group-item list-group-item-action"><i
+                                    class="mr-2 icon-security text-purple"></i>退出登陆</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header"><strong>企业人力资源管理系统</strong></li>
+                <li class="treeview"><a th:href="@{/information/admin/list}">
+                    <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>员工管理</span></a>
+                </li>
+                <li class="treeview"><a href="#">
+                    <i class="icon icon icon-package blue-text s-18"></i>
+                    <span>考勤管理</span>
+                    <i class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/attendance/admin/list}"><i class="icon icon-circle-o"></i>考勤情况</a></li>
+                        <li><a th:href="@{/leave/admin/list}"><i class="icon icon-add"></i>请假通知 </a></li>
+                    </ul>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/wageinfo/admin/list}">
+                        <i class="icon icon-dialpad blue-text  s-18"></i>
+                        <span>工资管理</span>
+                    </a>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/announcement/admin/list}">
+                        <i class="icon icon-wpforms light-green-text s-18 "></i>
+                        <span>公告管理</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+    <!--Sidebar End-->
+    <div class="page has-sidebar-left">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark pt-2 pb-2 pl-4 pr-2">
+                    <div class="search-bar">
+                        <input class="transparent s-24 text-white b-0 font-weight-lighter w-128 height-50" type="text"
+                               placeholder="start typing...">
+                    </div>
+                    <a href="#" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-expanded="false"
+                       aria-label="Toggle navigation" class="paper-nav-toggle paper-nav-white active "><i></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-expand d-flex justify-content-between navbar-dark bd-navbar blue accent-2 ">
+            <div class="relative">
+                <div class="d-flex">
+                    <div>
+                        <a href="#" data-toggle="offcanvas" class="paper-nav-toggle pp-nav-toggle">
+                            <i></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h1 class="nav-title text-white">首页</h1>
+                    </div>
+                </div>
+            </div>
+            <!--Top Menu Start -->
+
+
+
+        </div>
+
+        <!--        嘟嘟噜的通知-->
+        <button hidden="hidden"  class="btn btn-success btn-lg toast-action"
+                  data-title=""
+                  data-message=""
+                  data-type="success"
+                  data-position-class="toast-bottom-right" id=duduluinfo>abc
+
+        </button>
+
+
+        <div class="blue accent-2 p-5">
+            <canvas data-chart="line" height="300" data-dataset="[
+                                                            [30, 20, 25, 0, 20, 25,10,30],
+                                                            [1, 7, 21, 36, 12, 39, 10, 30,20],
+
+                                                            ]" data-labels="['January',
+                                                            'February',
+                                                            'March',
+                                                            'April',
+                                                            'May',
+                                                            'June',
+                                                            'July ',
+                                                            'August',
+                                                            'September',
+                                                            'October',
+                                                            'November',
+                                                            'December',]" data-dataset-options="[
+                                                            {   label:'HTML',
+                                                                fill: false,
+
+                                                                backgroundColor: '#fff',
+                                                                borderColor: 'rgba(255,255,255,0.5)',
+                                                                pointBorderColor: '#fff',
+                                                                pointBackgroundColor: '#4285f4',
+                                                                pointBorderWidth: '0',
+                                                                pointStyle: 'circle',
+                                                                borderWidth: 2,
+                                                                borderJoinStyle: 'miter',
+                                                                pointHoverBackgroundColor: '#fff',
+                                                                pointHoverBorderColor: '#fff',
+                                                                pointHoverBorderWidth: 1,
+                                                                pointRadius: 3,
+                                                                lineTension:0,
+                                                            },
+                                                            {   label:'HTML',
+                                                            fill: false,
+                                                            borderDash: [5, 5],
+                                                            backgroundColor: '#fff',
+                                                            borderColor: 'rgba(0,0,0,0.1)',
+                                                            pointBorderColor: '#fff',
+                                                            pointBackgroundColor: '#4285f4',
+                                                            pointBorderWidth: '0',
+                                                            pointStyle: 'circle',
+                                                            borderWidth: 2,
+                                                            borderJoinStyle: 'miter',
+                                                            pointHoverBackgroundColor: '#fff',
+                                                            pointHoverBorderColor: '#fff',
+                                                            pointHoverBorderWidth: 1,
+                                                            pointRadius: 3,
+                                                            lineTension:0,
+                                                        },
+                                                            ]" data-options="{
+                                                                    maintainAspectRatio: false,
+                                                                    legend: {
+                                                                        display: false,
+                                                                        labels: {
+                                                                            fontColor: 'white',
+
+                                                                        }
+
+                                                                    },
+
+                                                                    scales: {
+                                                                        xAxes: [{
+                                                                            display: true,
+                                                                            ticks: {
+                                                                                fontColor: 'rgba(255,255,255,0.5)',
+
+                                                                            },
+                                                                            gridLines: {
+                                                                                display: false,
+                                                                            }
+
+                                                                        }],
+                                                                        yAxes: [{
+                                                                            display: true,
+                                                                            ticks: {
+                                                                                fontColor: 'rgba(255,255,255,0.5)',
+                                                                                stepSize: 20,
+
+                                                                            },
+                                                                            gridLines: {
+                                                                                zeroLineColor: 'rgba(255,255,255,0.1)',
+
+                                                                                color: 'rgba(255,255,255,0.1)',
+
+                                                                            }
+                                                                        }]
+
+                                                                    },
+                                                                    elements: {
+                                                                        line: {
+                                                                            tension: 0.4,
+                                                                            borderWidth: 1
+                                                                        },
+                                                                        point: {
+                                                                            radius: 2,
+                                                                            hitRadius: 10,
+                                                                            hoverRadius: 6,
+                                                                            borderWidth: 4,
+
+
+                                                                        }
+                                                                    }
+                                                                }">
+            </canvas>
+        </div>
+        <div class="container-fluid animatedParent animateOnce no-p">
+            <div class="animated fadeInUpShort">
+                <div class="card no-b shadow">
+                    <div class="card-body p-0">
+                        <div class="lightSlider" data-item="6" data-item-xl="4" data-item-md="2" data-item-sm="1" data-pause="7000" data-pager="false" data-auto="true"
+                             data-loop="true">
+                            <div class="p-5 purple lighten-3 text-white">
+                                <h5 class="font-weight-normal s-14">Sodium</h5>
+                                <span class="s-48 font-weight-lighter text-primary">675</span>
+                                <div> Oxygen
+                                    <span class="text-primary">
+                                    <i class="icon icon-arrow_downward"></i> 67%</span>
+                                </div>
+                            </div>
+
+                            <div class="p-5">
+                                <h5 class="font-weight-normal s-14">Iron</h5>
+                                <span class="s-48 font-weight-lighter light-green-text">675</span>
+                                <div> Carbon
+                                    <span class="text-light-green">
+                                    <i class="icon icon-arrow_downward"></i> 67%</span>
+                                </div>
+                            </div>
+
+                            <div class="p-5 light">
+                                <h5 class="font-weight-normal s-14">Helium</h5>
+                                <span class="s-48 font-weight-lighter text-primary">300</span>
+                                <div> Hydrogen
+                                    <span class="text-primary">
+                                    <i class="icon icon-arrow_downward"></i> 67%</span>
+                                </div>
+                            </div>
+
+                            <div class="p-5">
+                                <h5 class="font-weight-normal s-14">Carbon</h5>
+                                <span class="s-48 font-weight-lighter amber-text">700</span>
+                                <div> Helium
+                                    <span class="amber-text">
+                                    <i class="icon icon-arrow_downward"></i> 67%</span>
+                                </div>
+                            </div>
+
+                            <div class="p-5 light">
+                                <h5 class="font-weight-normal s-14">Oxygen</h5>
+                                <span class="s-48 font-weight-lighter text-indigo">411</span>
+                                <div> Iron
+                                    <span class="text-indigo">
+                                    <i class="icon icon-arrow_downward"></i> 89%</span>
+                                </div>
+                            </div>
+
+                            <div class="p-5">
+                                <h5 class="font-weight-normal s-14">Helium</h5>
+                                <span class="s-48 font-weight-lighter pink-text">224</span>
+                                <div> Sodium
+                                    <span class="pink-text">
+                                    <i class="icon icon-arrow_downward"></i> 47%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Right Sidebar -->
+    <aside class="control-sidebar fixed white ">
+        <div class="slimScroll">
+            <div class="sidebar-header">
+                <h4>Activity List</h4>
+                <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle  active"><i></i></a>
+            </div>
+            <div class="p-3">
+                <div>
+                    <div class="my-3">
+                        <small>25% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>45% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 45%;" aria-valuenow="45"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>60% Complete</small>
+                        `
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>75% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="my-3">
+                        <small>100% Complete</small>
+                        <div class="progress" style="height: 3px;">
+                            <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100"
+                                 aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 bg-primary text-white">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="font-weight-normal s-14">Sodium</h5>
+                        <span class="font-weight-lighter text-primary">Spark Bar</span>
+                        <div> Oxygen
+                            <span class="text-primary">
+                                                    <i class="icon icon-arrow_downward"></i> 67%</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <canvas width="100" height="70" data-chart="spark" data-chart-type="bar"
+                                data-dataset="[[28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100,28,68,41,43,96,45,100]]"
+                                data-labels="['a','b','c','d','e','f','g','h','i','j','k','l','m','n','a','b','c','d','e','f','g','h','i','j','k','l','m','n']">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="recent-orders" class="table table-hover mb-0 ps-container ps-theme-default">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <a href="#">INV-281281</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Paid</span>
+                        </td>
+                        <td>$ 1228.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-01112</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-warning">Overdue</span>
+                        </td>
+                        <td>$ 5685.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-281012</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Paid</span>
+                        </td>
+                        <td>$ 152.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-01112</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-warning">Overdue</span>
+                        </td>
+                        <td>$ 5685.28</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="#">INV-281012</a>
+                        </td>
+                        <td>
+                            <span class="badge badge-success">Paid</span>
+                        </td>
+                        <td>$ 152.28</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sidebar-header">
+                <h4>Activity</h4>
+                <a href="#" data-toggle="control-sidebar" class="paper-nav-toggle  active"><i></i></a>
+            </div>
+            <div class="p-4">
+                <div class="activity-item activity-primary">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 5 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit amet conse ctetur which ascing elit users.</p>
+                    </div>
+                </div>
+                <div class="activity-item activity-danger">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 8 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit ametcon the sectetur that ascing elit users.</p>
+                    </div>
+                </div>
+                <div class="activity-item activity-success">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 10 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit amet cons the ecte tur and adip ascing elit users.</p>
+                    </div>
+                </div>
+                <div class="activity-item activity-warning">
+                    <div class="activity-content">
+                        <small class="text-muted">
+                            <i class="icon icon-user position-left"></i> 12 mins ago
+                        </small>
+                        <p>Lorem ipsum dolor sit amet consec tetur adip ascing elit users.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- /.right-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+             immediately after the control sidebar -->
+    <div class="control-sidebar-bg shadow white fixed"></div>
+
+
+<!--    嘟嘟噜的修改-->
+    <div class="modal fade" id="user_change" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">
+                        修改密码
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form" th:action="@{/user/admin/change_admin}"
+                          method="post">
+
+                        <div class="card no-b  no-r">
+                            <div class="card-body">
+
+                                <div class="form-row">
+                                    <div class="col-md-8">
+
+                                        <div class="form-group m-0">
+                                            <label for="password1" class="col-form-label s-12">*原密码</label>
+                                            <input id="password1" name="password1"  class="form-control r-0 light s-12 " type="password" required="required" >
+                                        </div>
+
+                                        <div class="form-group m-0">
+                                            <label for="password2" class="col-form-label s-12">*新密码</label>
+                                            <input id="password2" name="password2"  class="form-control r-0 light s-12 " type="password" required="required" >
+                                        </div>
+
+                                        <div class="form-group m-0">
+                                            <label for="password3" class="col-form-label s-12">*重复新密码</label>
+                                            <input id="password3" name="password3"  class="form-control r-0 light s-12 " type="password" required="required" >
+                                        </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    修改
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+</div>
+
+
+
+<!--/#app -->
+<script th:src="@{/asserts/js/app.js}"></script>
+<span th:if="${param.p1_data}">
+    <script>
+        $('#duduluinfo').attr("data-title","通知");
+        $('#duduluinfo').attr("data-message","[[${param.p1_data}]]");
+        $('#duduluinfo').attr("data-type","success");
+        $('#duduluinfo').click();
+    </script>
+</span>
+<span th:if="${param.p2_data}">
+    <script>
+        $('#duduluinfo').attr("data-title","通知");
+        $('#duduluinfo').attr("data-message","[[${param.p2_data}]]");
+        $('#duduluinfo').attr("data-type","error");
+        $('#duduluinfo').click();
+    </script>
+</span>
+</body>
+</html>

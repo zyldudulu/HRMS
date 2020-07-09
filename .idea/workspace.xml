@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c8870cf4-5d00-4c19-b162-8c0553b139fd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="E:/java/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="E:\project\java\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="11" />
+  </component>
+  <component name="ProjectId" id="1Vpz9n07CMZRzIsWjc1Ea9FKzqc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.gem.mapper" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\20200707\crm\src\main\resources\templates" />
+      <recent name="E:\project\idea05\crm\src\main\resources\templates" />
+      <recent name="E:\project\idea05\crm\src\main\java\com\gem\config" />
+      <recent name="E:\project\idea05\crm\src\main\resources\static\asserts\css" />
+      <recent name="E:\project\idea05\crm\src\main\resources\static\asserts" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\project\idea05\crm\src\main\resources\static\asserts\css" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.CrmApplication">
+    <configuration name="Conf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gem.util.Conf" />
+      <module name="crm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gem.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MD5Util" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gem.util.MD5Util" />
+      <module name="crm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gem.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MarkDown2HtmlUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gem.util.MarkDown2HtmlUtils" />
+      <module name="crm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gem.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.gem.controller.Test" />
+      <module name="crm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gem.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LeaveMapperTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="crm" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.gem.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.gem.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.gem.mapper.LeaveMapperTest" />
+      <option name="METHOD_NAME" value="save" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CrmApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="crm" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.gem.CrmApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Conf" />
+        <item itemvalue="Application.MD5Util" />
+        <item itemvalue="Application.MarkDown2HtmlUtils" />
+        <item itemvalue="JUnit.LeaveMapperTest.save" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8870cf4-5d00-4c19-b162-8c0553b139fd" name="Default Changelist" comment="" />
+      <created>1577520359485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1577520359485</updated>
+      <workItem from="1577520360952" duration="2055000" />
+      <workItem from="1577522689319" duration="1537000" />
+      <workItem from="1577620631354" duration="180000" />
+      <workItem from="1577623171245" duration="3582000" />
+      <workItem from="1577626836233" duration="106000" />
+      <workItem from="1577627034066" duration="83000" />
+      <workItem from="1577627270297" duration="5445000" />
+      <workItem from="1577632857710" duration="1543000" />
+      <workItem from="1577664510751" duration="5989000" />
+      <workItem from="1577685805494" duration="3205000" />
+      <workItem from="1577689183785" duration="5062000" />
+      <workItem from="1577704491916" duration="10103000" />
+      <workItem from="1577750997386" duration="16487000" />
+      <workItem from="1577859329262" duration="15701000" />
+      <workItem from="1577923919557" duration="3629000" />
+      <workItem from="1577964683675" duration="1898000" />
+      <workItem from="1577968123616" duration="304000" />
+      <workItem from="1577970772958" duration="2090000" />
+      <workItem from="1577974207816" duration="483000" />
+      <workItem from="1577975137645" duration="2844000" />
+      <workItem from="1577980180657" duration="1006000" />
+      <workItem from="1578010334525" duration="10979000" />
+      <workItem from="1578033698748" duration="8929000" />
+      <workItem from="1578050354824" duration="1357000" />
+      <workItem from="1578051735259" duration="6755000" />
+      <workItem from="1578060586986" duration="4378000" />
+      <workItem from="1578099788436" duration="604000" />
+      <workItem from="1578100420591" duration="379000" />
+      <workItem from="1578100861286" duration="544000" />
+      <workItem from="1578101425941" duration="1743000" />
+      <workItem from="1578103942168" duration="1336000" />
+      <workItem from="1578123756801" duration="153000" />
+      <workItem from="1578124171491" duration="5423000" />
+      <workItem from="1578133461880" duration="122000" />
+      <workItem from="1578133868865" duration="10221000" />
+      <workItem from="1578151628606" duration="596000" />
+      <workItem from="1578201712206" duration="21795000" />
+      <workItem from="1578270765278" duration="3140000" />
+      <workItem from="1578295232073" duration="821000" />
+      <workItem from="1578310828954" duration="2991000" />
+      <workItem from="1578323889299" duration="675000" />
+      <workItem from="1578326940358" duration="3893000" />
+      <workItem from="1578356205024" duration="227000" />
+      <workItem from="1578357932115" duration="3494000" />
+      <workItem from="1578550864093" duration="319000" />
+      <workItem from="1582800738748" duration="436000" />
+      <workItem from="1582808120287" duration="2298000" />
+      <workItem from="1583486351600" duration="16000" />
+      <workItem from="1583486388985" duration="997000" />
+      <workItem from="1585057067636" duration="8000" />
+      <workItem from="1592572326655" duration="3854000" />
+      <workItem from="1592914121999" duration="3070000" />
+      <workItem from="1593060240901" duration="1837000" />
+      <workItem from="1593604112693" duration="647000" />
+      <workItem from="1594111900812" duration="1948000" />
+      <workItem from="1594119444061" duration="11862000" />
+      <workItem from="1594132626826" duration="4251000" />
+      <workItem from="1594192647719" duration="19503000" />
+      <workItem from="1594222186957" duration="989000" />
+      <workItem from="1594255308554" duration="2142000" />
+      <workItem from="1594259248520" duration="17103000" />
+      <workItem from="1594294455865" duration="272000" />
+      <workItem from="1594299688286" duration="1685000" />
+      <workItem from="1594310367000" duration="490000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1159" y="507" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1594282434364">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="1159" y="507" key="#com.intellij.codeInsight.template.impl.EditVariableDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594282434364" />
+    <state x="1145" y="307" key="#com.intellij.ide.util.MemberChooser" timestamp="1594129313546">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="1145" y="307" key="#com.intellij.ide.util.MemberChooser/73.0.1975.1152@73.0.1975.1152" timestamp="1594129313546" />
+    <state x="1335" y="323" key="FileChooserDialogImpl" timestamp="1594310559384">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="1335" y="323" key="FileChooserDialogImpl/73.0.1975.1152@73.0.1975.1152" timestamp="1594310559384" />
+    <state x="1430" y="475" width="273" height="208" key="Github.ShareDialog" timestamp="1594310833936">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="1430" y="475" width="273" height="208" key="Github.ShareDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594310833936" />
+    <state x="843" y="284" key="Github.UntrackedFilesDialog" timestamp="1594310853023">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="843" y="284" key="Github.UntrackedFilesDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594310853023" />
+    <state width="1933" height="212" key="GridCell.Tab.0.bottom" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.0.bottom/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.0.center" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.0.center/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.0.left" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.0.left/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.0.right" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.0.right/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.1.bottom" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.1.bottom/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.1.center" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.1.center/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.1.left" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.1.left/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state width="1933" height="212" key="GridCell.Tab.1.right" timestamp="1594310133091">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state width="1933" height="212" key="GridCell.Tab.1.right/73.0.1975.1152@73.0.1975.1152" timestamp="1594310133091" />
+    <state x="806" y="228" width="1242" height="709" key="SettingsEditor" timestamp="1594282435654">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="806" y="228" width="1242" height="709" key="SettingsEditor/73.0.1975.1152@73.0.1975.1152" timestamp="1594282435654" />
+    <state x="645" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1594299735406">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="645" y="347" key="com.intellij.ide.util.TipDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594299735406" />
+    <state x="724" y="253" width="672" height="678" key="search.everywhere.popup" timestamp="1594221936474">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="724" y="253" width="672" height="678" key="search.everywhere.popup/73.0.1975.1152@73.0.1975.1152" timestamp="1594221936474" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

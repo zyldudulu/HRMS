@@ -1,0 +1,25 @@
+.modal-content {
+// 宽度自适应内容
+width: fit-content;
+// 流出间隙
+padding: 0.2rem 0.4rem;
+}
+
+.dudulu1
+{
+    position:absolute;
+    right:17px;
+    top:0;
+}
+.dudulu2
+{
+    position:absolute;
+    right:117px;
+    top:0;
+}
+.dudulu3
+{
+    position:absolute;
+    right:195px;
+    top:0;
+}

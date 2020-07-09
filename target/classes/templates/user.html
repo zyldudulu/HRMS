@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script th:src="@{/asserts/js/jquery-1.10.2.min.js}"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="icon" th:href="@{/asserts/img/basic/favicon.ico}" type="image/x-icon">
+    <title>Paper</title>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/asserts/css/app.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/dudulu.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/asserts/css/magic-check.css}">
+    <script th:src="@{/asserts/js/dudulu_user.js}"></script>
+    <style>
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F8FA;
+            z-index: 9998;
+            text-align: center;
+        }
+
+        .plane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body class="light">
+<!-- Pre loader -->
+<div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="app">
+    <aside class="main-sidebar fixed offcanvas shadow">
+        <section class="sidebar">
+            <div class="w-80px mt-3 mb-3 ml-3">
+                <img th:src="@{/asserts/img/basic/logo.png}" alt="">
+            </div>
+            <div class="relative">
+                <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
+                   aria-controls="userSettingsCollapse" class="btn-fab btn-fab-sm fab-right fab-top btn-primary shadow1 ">
+                    <i class="icon icon-cogs"></i>
+                </a>
+                <div class="user-panel p-3 light mb-2">
+                    <div>
+                        <div class="float-left image">
+                            <a th:href="@{/user/admin/index}"><img class="user_avatar" th:src="@{/asserts/img/dummy/u2.png}" alt="User Image"></a>
+                        </div>
+                        <div class="float-left info">
+                            <h6 class="font-weight-light mt-2 mb-1">root</h6>
+                            <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="collapse multi-collapse" id="userSettingsCollapse">
+                        <div class="list-group mt-3 shadow">
+
+                            <a th:href="@{/user/logout}" class="list-group-item list-group-item-action"><i
+                                    class="mr-2 icon-security text-purple"></i>退出登陆</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header"><strong>企业人力资源管理系统</strong></li>
+                <li class="treeview"><a th:href="@{/information/admin/list}">
+                    <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>员工管理</span></a>
+                </li>
+                <li class="treeview"><a href="#">
+                    <i class="icon icon icon-package blue-text s-18"></i>
+                    <span>考勤管理</span>
+                    <i class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/attendance/admin/list}"><i class="icon icon-circle-o"></i>考勤情况</a></li>
+                        <li><a th:href="@{/leave/admin/list}"><i class="icon icon-add"></i>请假通知 </a></li>
+                    </ul>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/wageinfo/admin/list}">
+                        <i class="icon icon-dialpad blue-text  s-18"></i>
+                        <span>工资管理</span>
+                    </a>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/announcement/admin/list}">
+                        <i class="icon icon-wpforms light-green-text s-18 "></i>
+                        <span>公告管理</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+    <!--Sidebar End-->
+    <div class="has-sidebar-left">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark pt-2 pb-2 pl-4 pr-2">
+                    <div class="search-bar">
+                        <input class="transparent s-24 text-white b-0 font-weight-lighter w-128 height-50" type="text"
+                               placeholder="start typing...">
+                    </div>
+                    <a href="#" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-expanded="false"
+                       aria-label="Toggle navigation" class="paper-nav-toggle paper-nav-white active "><i></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky">
+            <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
+                <div class="relative">
+                    <a href="#" data-toggle="offcanvas" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <!--Top Menu Start -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="page  has-sidebar-left height-full">
+        <header class="blue accent-3 relative">
+            <div class="container-fluid text-white">
+                <div class="row p-t-b-10 ">
+                    <div class="col">
+                        <h4>
+                            <i class="icon icon-sailing-boat-water purple-text s-18"></i>
+                            员工管理
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dudulu3">
+                <a th:href="@{/information/admin/export}"><button type="button" class="btn btn-info btn-xs">导出EXCEL</button></a>
+            </div>
+            <div class="dudulu2">
+                <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#user_upload'"><button type="button" class="btn btn-info btn-xs">导入EXCEL</button></a>
+            </div>
+            <div class="dudulu1">
+                <a th:href="@{/information/admin/download}+'?fileName=template.xlsx'"><button type="button" class="btn btn-info btn-xs">下载EXCEL模板</button></a>
+            </div>
+
+
+        </header>
+
+<!--        嘟嘟噜的通知-->
+        <button hidden  class="btn btn-success btn-lg toast-action"
+                data-title=""
+                data-message=""
+                data-type="success"
+                data-position-class="toast-bottom-right" id=duduluinfo>abc
+        </button>
+
+        <div class="container-fluid animatedParent animateOnce">
+            <div class="tab-content my-3" id="v-pills-tabContent">
+                <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
+                    <div class="row my-3">
+                        <div class="col-md-12">
+                            <form class="form-horizontal" role="form" th:action="@{/information/admin/search}"
+                                  method="post">
+                            <div class="zyl3">
+                                <input name="id_search" style="width:150px" class="form-control form-control-sm r-0" type="text" placeholder="员工编号" th:value="${id_search}">
+                            </div>
+                            <div class="zyl4">
+                                <input name="name_search" style="width:150px" class="form-control form-control-sm r-0" type="text" placeholder="姓名" th:value="${name_search}">
+                            </div>
+                            <div class="zyl5">
+                                <input name="department_search" style="width:150px" class="form-control form-control-sm r-0" type="text" placeholder="部门" th:value="${department_search}">
+                            </div>
+                            <div class="zyl6">
+                                <button type="submit" class="btn btn-primary btn-xs">查&nbsp;找</button>
+                            </div>
+                            </form>
+
+
+                            </br>
+                            <form class="form-horizontal" role="form" th:action="@{/information/admin/delmany}"
+                                  method="post">
+                                <button style="width:100px" type="submit" class="btn btn-danger btn-xs">批量删除</button>
+                                <div class="card r-0 shadow">
+                                    <div class="table-responsive">
+
+                                        <table class="table table-bordered table-hover data-tables" data-options='{"searching":false}'>
+                                            <thead>
+                                            <tr>
+
+                                                <th>员工编号</th>
+                                                <th>姓名</th>
+                                                <th>性别</th>
+                                                <th>部门</th>
+                                                <th>工资</th>
+                                                <th>操作</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="info:${list_pirt}">
+
+                                                <td>
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" th:id="'materialUnchecked'+${info.id}" th:name="${info.id}">
+                                                        <label class="form-check-label" th:for="'materialUnchecked'+${info.id}">[[${info.id}]]</label>
+                                                    </div>
+                                                </td>
+                                                <td>[[${info.name}]]</td>
+                                                <td>[[${info.gender}]]</td>
+                                                <td>[[${info.department}]]</td>
+                                                <td>[[${info.wage}]]</td>
+                                                <td>
+                                                    <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#mymodal_info' + ${info.id}"><i class="icon-eye mr-3"></i></a>
+                                                    <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#mymodal' + ${info.id}"><i class="icon-edit"></i></a>
+                                                    &nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#mymodal_wage' + ${info.id}"><i class="icon-share-square-o text-success"></i></a>
+                                                    &nbsp;&nbsp;
+                                                    <a th:href="@{/information/admin/del}+'?id='+${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </form>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--Add New Message Fab Button-->
+        <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#user_add'" class="btn-fab btn-fab-md fab-right fab-right-bottom-fixed shadow btn-primary"><i
+                class="icon-add" ></i></a>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="user_add" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">
+                            添加员工
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" role="form" th:action="@{/information/admin/add}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <div class="card-body">
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+
+                                            <div class="form-group m-0">
+                                                <label for="name" class="col-form-label s-12">*姓名</label>
+                                                <input id="name" name="name" placeholder="输入姓名" class="form-control r-0 light s-12 " type="text" required="required" >
+                                            </div>
+                                            <div class="form-group m-0">
+                                                <label for="male" class="col-form-label s-12">*性别</label>
+                                                <br>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="male" name="gender" value="男" class="custom-control-input" required="required">
+                                                    <label class="custom-control-label m-0" for="male">男</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" id="female" name="gender" value="女" class="custom-control-input" required="required">
+                                                    <label class="custom-control-label m-0" for="female">女</label>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-6 m-0">
+                                                    <label class="col-form-label s-12"><i class="icon-fingerprint"></i>*部门</label>
+                                                    <input name="department" id="department" placeholder="输入部门" class="form-control r-0 light s-12 date-picker" type="text" required="required">
+                                                </div>
+                                                <div class="form-group col-6 m-0">
+                                                    <label for="wage" class="col-form-label s-12"><i class="icon-fingerprint"></i>*工资</label>
+                                                    <input name="wage" id="wage" placeholder="输入工资" class="form-control r-0 light s-12 datePicker" data-time-picker="false"
+                                                           data-format-date='Y/m/d' type="text" required="required">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-6 m-0">
+                                                    <label  class="col-form-label s-12"><i class="icon-calendar mr-2"></i>*生日</label>
+                                                    <div class="input-group focused">
+                                                        <input name="birthday" type="text" required="required" class="date-time-picker form-control" data-options="{&quot;timepicker&quot;:false, &quot;format&quot;:&quot;Y-m-d&quot;}" >
+                                                        <span class="input-group-append">
+														<span class="input-group-text add-on white">
+															<i class="icon-calendar"></i>
+														</span>
+													</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-6 m-0">
+                                                    <label class="col-form-label s-12"><i class="icon-calendar mr-2"></i>*入职时间</label>
+                                                    <div class="input-group focused">
+                                                        <input name="entry" required="required" type="text" class="date-time-picker form-control" data-options="{&quot;timepicker&quot;:false, &quot;format&quot;:&quot;Y-m-d&quot;}" >
+                                                        <span class="input-group-append">
+														<span class="input-group-text add-on white">
+															<i class="icon-calendar"></i>
+														</span>
+													</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-6 m-0">
+                                                    <label for="phone" class="col-form-label s-12"><i class="icon-phone mr-2"></i>*电话</label>
+                                                    <input name="phone" id="phone" placeholder="输入电话" class="form-control r-0 light s-12 date-picker" type="text" required="required">
+                                                </div>
+                                                <div class="form-group col-6 m-0">
+                                                    <label for="address" class="col-form-label s-12">*邮箱</label>
+                                                    <input name="address" id="address" placeholder="输入邮箱" class="form-control r-0 light s-12 datePicker" data-time-picker="false"
+                                                            type="text" required="required">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        添加
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+
+<!--    嘟嘟噜的上传文件-->
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="user_upload" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">
+                        导入Excel
+                    </h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="form-horizontal" role="form" th:action="@{/information/admin/upload}"
+                          method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <!--隐藏域-->
+                                <input type="file" name="head" required="required"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                上传
+                            </button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的修改-->
+        <div class="modal fade" th:id="'mymodal' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            修改员工信息
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" th:action="@{/information/admin/update}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <div class="card-body">
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+                                            <input type="hidden" name="id" th:value="${info.id}"/>
+                                            <div class="form-group m-0">
+                                                <label class="col-form-label s-12">*姓名</label>
+                                                <input name="name" th:value="${info.name}" placeholder="输入姓名" class="form-control r-0 light s-12 " type="text" required="required" >
+                                            </div>
+                                            <div class="form-group m-0">
+                                                <label  class="col-form-label s-12">*性别</label>
+                                                <br>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" th:id="'male_update'+${info.id}" name="gender" value="男" class="custom-control-input" required="required">
+                                                    <label class="custom-control-label m-0" th:for="'male_update'+${info.id}">男</label>
+                                                </div>
+                                                <div class="custom-control custom-radio custom-control-inline">
+                                                    <input type="radio" th:id="'female_update'+${info.id}" name="gender" value="女" class="custom-control-input" required="required">
+                                                    <label class="custom-control-label m-0" th:for="'female_update'+${info.id}">女</label>
+                                                </div>
+                                                <script>
+                                                    var gender="[[${info.gender}]]";
+                                                    if(gender=="男")
+                                                    {
+                                                        var toname="#male_update"+"[[${info.id}]]";
+                                                        $(toname).attr("checked","checked");
+                                                    }
+                                                    else
+                                                    {
+                                                        var toname="#female_update"+"[[${info.id}]]";
+                                                        $(toname).attr("checked","checked");
+                                                    }
+                                                </script>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-6 m-0">
+                                                    <label class="col-form-label s-12"><i class="icon-fingerprint"></i>*部门</label>
+                                                    <input name="department"  th:value="${info.department}" placeholder="输入部门" class="form-control r-0 light s-12 date-picker" type="text" required="required">
+                                                </div>
+                                                <div class="form-group col-6 m-0">
+                                                    <label  class="col-form-label s-12"><i class="icon-fingerprint"></i>*工资</label>
+                                                    <input name="wage" th:value="${info.wage}" placeholder="输入工资" class="form-control r-0 light s-12 datePicker" data-time-picker="false"
+                                                           data-format-date='Y/m/d' type="text" required="required">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-6 m-0">
+                                                    <label  class="col-form-label s-12"><i class="icon-calendar mr-2"></i>*生日</label>
+                                                    <div class="input-group focused">
+                                                        <input name="birthday" type="text" required="required" class="date-time-picker form-control" data-options="{&quot;timepicker&quot;:false, &quot;format&quot;:&quot;Y-m-d&quot;}"  th:value="${info.birthday}">
+                                                        <span class="input-group-append">
+														<span class="input-group-text add-on white">
+															<i class="icon-calendar"></i>
+														</span>
+													</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-6 m-0">
+                                                    <label class="col-form-label s-12"><i class="icon-calendar mr-2"></i>*入职时间</label>
+                                                    <div class="input-group focused">
+                                                        <input name="entry" required="required" type="text" class="date-time-picker form-control" data-options="{&quot;timepicker&quot;:false, &quot;format&quot;:&quot;Y-m-d&quot;}"  th:value="${info.entry}">
+                                                        <span class="input-group-append">
+														<span class="input-group-text add-on white">
+															<i class="icon-calendar"></i>
+														</span>
+													</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-6 m-0">
+                                                    <label class="col-form-label s-12"><i class="icon-phone mr-2"></i>*电话</label>
+                                                    <input name="phone" th:value="${info.phone}" placeholder="输入电话" class="form-control r-0 light s-12 date-picker" type="text" required="required">
+                                                </div>
+                                                <div class="form-group col-6 m-0">
+                                                    <label  class="col-form-label s-12">*地址</label>
+                                                    <input name="address" th:value="${info.address}" placeholder="输入地址" class="form-control r-0 light s-12 datePicker" data-time-picker="false"
+                                                           type="text" required="required">
+                                                </div>
+                                            </div>
+
+                                            <br/>
+                                            <div class="form-check mb-2 mr-sm-2">
+                                                <input class="form-check-input" type="checkbox" id="ResertCheck" name="ResertCheck">
+                                                <label class="form-check-label" for="ResertCheck">
+                                                重置密码
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        更新
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
+
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的用户的详细信息-->
+        <div class="modal fade" th:id="'mymodal_info' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            员工信息
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="pb-3">
+                            <div class="image mr-3  float-left">
+                                <img class="user_avatar no-b no-p" th:src="@{'/'+${info.head}}" alt="User Image">
+                            </div>
+                            <div>
+                                <h6 class="p-t-10">[[${info.name}]]</h6>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="card ">
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="icon icon-address-card-o text-warning"></i><strong class="s-12">基本信息</strong></li>
+                                <li class="list-group-item"><strong class="s-12">性别</strong> <span class="float-right s-12">[[${info.gender}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">生日</strong> <span class="float-right s-12">[[${info.birthday}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">年龄</strong> <span class="float-right s-12">
+                                    <script>
+                                        var birthDayTime = new Date("[[${info.birthday}]]").getTime();
+                                        var nowTime = new Date().getTime();
+                                        var age=Math.ceil((nowTime-birthDayTime)/31536000000);
+                                        document.write(age+"");
+                                    </script>
+                                </span></li>
+
+                                <li class="list-group-item"><i class="icon icon-web text-danger"></i><strong class="s-12">公司信息</strong></li>
+                                <li class="list-group-item"><strong class="s-12">工号</strong> <span class="float-right s-12">[[${info.id}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">部门</strong> <span class="float-right s-12">[[${info.department}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">工资</strong> <span class="float-right s-12">[[${info.wage}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">累计工资</strong> <span class="float-right s-12">
+                                    <script>
+                                        var entryDayTime = new Date("[[${info.entry}]]").getTime();
+                                        var nowTime = new Date().getTime();
+                                        var mouth=Math.floor((nowTime-birthDayTime)/2592000000);
+                                        var wage=mouth*[[${info.wage}]];
+                                        document.write(wage+"");
+                                    </script>
+                                </span></li>
+                                <li class="list-group-item"><strong class="s-12">入职时间</strong> <span class="float-right s-12">[[${info.entry}]]</span></li>
+
+                                <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong class="s-12">联系方式</strong></li>
+                                <li class="list-group-item"><strong class="s-12">电话</strong> <span class="float-right s-12">[[${info.phone}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">地址</strong> <span class="float-right s-12">[[${info.address}]]</span></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的用户的详细信息-->
+        <div class="modal fade" th:id="'mymodal_wage' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            工资结算
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="pb-3">
+                            <div class="image mr-3  float-left">
+                                <img class="user_avatar no-b no-p" th:src="@{'/'+${info.head}}" alt="User Image">
+                            </div>
+                            <div>
+                                <h6 class="p-t-10">[[${info.name}]]</h6>
+
+                            </div>
+                        </div>
+                        <br>
+                        <form class="form-horizontal" role="form" th:action="@{/wage/admin/settlement}"
+                              method="post">
+                        <div class="card ">
+
+                            <input type="hidden" name="id" th:value="${info.id}"/>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="icon icon-table light-green-text"></i><strong class="s-12">工资统计</strong></li>
+                                <li class="list-group-item">
+                                    <strong class="s-12">考勤工资</strong>
+                                    <span th:id="'duduluwage1'+${info.id}" class="float-right s-12">
+                                         <script>
+                                             querywage1("[[${info.id}]]","[[${info.id}]]");
+                                         </script>
+                                    </span>
+                                </li>
+
+                                <li class="list-group-item"><i class="icon icon-web text-danger"></i><strong class="s-12">奖惩统计</strong></li>
+                                <li class="list-group-item"><strong class="s-12">奖惩金额</strong>
+                                    <span th:id="'duduluwage2'+${info.id}" class="float-right s-12">
+                                        <script>
+                                             querywage2("[[${info.id}]]","[[${info.id}]]");
+                                         </script>
+                                    </span>
+                                </li>
+
+                                <li class="list-group-item"><i class="icon icon-wpforms light-green-text"></i><strong class="s-12">金额总计</strong></li>
+                                <li class="list-group-item"><strong class="s-12">共计金额</strong>
+                                    <span th:id="'duduluwage3'+${info.id}" class="float-right s-12">
+                                        <script>
+                                            querywage3("[[${info.id}]]","[[${info.id}]]");
+                                         </script>
+                                    </span>
+                                </li>
+                            </ul>
+
+
+                            <hr>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    结算
+                                </button>
+                            </div>
+
+                        </div>
+                        </form>
+
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
+
+
+
+</div>
+<!-- Right Sidebar -->
+
+<!-- /.right-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+<div class="control-sidebar-bg shadow white fixed"></div>
+</div>
+<!--/#app -->
+<script th:src="@{/asserts/js/app.js}"></script>
+<script th:src="@{/asserts/js/dudulu_user.js}"></script>
+<span th:if="${param.p1_data}">
+    <script>
+        $('#duduluinfo').attr("data-title","通知");
+        $('#duduluinfo').attr("data-message","[[${param.p1_data}]]");
+        $('#duduluinfo').attr("data-type","success");
+        $('#duduluinfo').click();
+    </script>
+</span>
+<span th:if="${param.p2_data}">
+    <script>
+        $('#duduluinfo').attr("data-title","通知");
+        $('#duduluinfo').attr("data-message","[[${param.p2_data}]]");
+        $('#duduluinfo').attr("data-type","error");
+        $('#duduluinfo').click();
+    </script>
+</span>
+<!--<script>-->
+<!--    $('#duduluinfo').click();-->
+
+<!--</script>-->
+</body>
+</html>

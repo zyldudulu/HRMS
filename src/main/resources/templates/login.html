@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://febshiro.mrbird.cc:8080/login -->
+<html xmlns:th="http://www.thymeleaf.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>企业人力资源管理系统</title>
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <link rel="stylesheet" th:href="@{/asserts/login_data/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/asserts/login_data/css/febs.css}" media="all">
+    <link rel="stylesheet" th:href="@{/asserts/login_data/css/login.css}" media="all">
+    <script th:src="@{/asserts/login_data/js/layui.js}"></script>
+    <script th:src="@{/asserts/js/jquery-1.10.2.min.js}"></script>
+    <script th:src="@{/asserts/login_data/js/login.js}"></script>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" th:href="@{/asserts/css/dudulu.css}">
+    <script th:src="@{/asserts/js/dudulu.js}"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+
+<style id="0d6e06c6-f16f-4fbf-a505-464c3f3e18b7">
+.pb-toast-main {
+            z-index: 2147483639 !important;
+            position: fixed !important;
+            top: -50px !important;
+            left: 0px !important;
+            width: 100% !important;
+            height: 44px !important;
+            border: none !important;
+            box-shadow: 0 1px 0 0 #b6b4b6 !important;
+            transition: top 0.3s;
+}
+.pb-toast-main-move {
+  top: 0px !important;
+}
+
+.pb-toast-main-show {
+  transition: none;
+  top: 0px !important;
+}
+
+
+
+#pb_jq_tipsWrapper {
+  position: fixed !important;
+  width: 230px !important;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.2);
+  font-family: "Lucida Grande", tahoma, verdana, arial, sans-serif !important;
+  border-radius: 5px !important;
+  color: #ffffff !important;
+  z-index: 2147483641 !important;
+  padding: 15px !important;
+  font-size: 14px !important;
+}
+
+#pb_jq_tipsWrapper:before {
+  position: absolute !important;
+  top: -10px !important;
+  right: 60px !important;
+  display: inline-block !important;
+  border-right: 10px solid transparent !important;
+  border-bottom: 10px solid #000 !important;
+  border-left: 10px solid transparent !important;
+  border-bottom-color: rgba(0, 0, 0, 0.2) !important;
+  content: '' !important;
+}
+
+#pb_jq_tipsWrapper:after {
+  position: absolute !important;
+  top: -9px !important;
+  right: 60px !important;
+  display: inline-block !important;
+  border-right: 9px solid transparent !important;
+  border-bottom: 9px solid #000 !important;
+  border-left: 9px solid transparent !important;
+  content: '' !important;
+}
+
+#pb-link-copied-message {
+  display: none;
+  position: fixed;
+  width: 90px;
+  height: 29px;
+  opacity: 0;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2147483641;
+  font-family: "Lucida Grande", tahoma, verdana, arial, sans-serif !important;
+  font-size: 13px;
+  line-height: 29px;
+  text-align: center;
+  color: #ffffff;
+}</style><link id="layuicss-layer" rel="stylesheet" th:href="@{/asserts/login_data/css/layer.css}" media="all"></head>
+
+
+
+<body>
+
+<div class="modal fade bd-example-modal-sm"  id="myModal" role="dialog" data-backdrop="false"  aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <p class="text-center mb-0" id="p_new"></p>
+        </div>
+    </div>
+</div>
+<span th:if="${param.p1_data}"><script>shownew1([[${param.p1_data}]])</script></span>
+<span th:if="${param.p2_data}"><script>shownew2([[${param.p2_data}]])</script></span>
+
+<div id="febs-login" lay-title="登录">
+    <div class="login-wrap">
+        <div class="layui-container">
+            <div class="layui-row">
+                <div class="layui-col-xs12 layui-col-lg4 layui-col-lg-offset4 febs-tc">
+                    <div class="layui-logo"><span><b>企业人力资源管理</b> 系统</span></div>
+                </div>
+                <div class="layui-col-xs12 layui-col-lg4 layui-col-lg-offset4" id="login-div">
+                    <div class="layui-form" lay-filter="login-form">
+                        <div class="layui-anim layui-anim-upbit">
+                            <ul class="login-type-tab">
+                                <li class="active">系统登录</li>
+                            </ul>
+
+                            <div class="normal-login-form">
+                                <div class="layui-form-item">
+                                    <label class="layui-icon label-icon layui-icon-username"></label>
+                                    <input type="text"
+                                           placeholder="用户名" autocomplete="off" class="layui-input" id="ln">
+                                </div>
+                                <div class="layui-form-item password-block">
+                                    <label class="layui-icon label-icon layui-icon-password"></label>
+                                    <input type="password" lay-verify="required"
+                                           placeholder="密码" autocomplete="off" class="layui-input" id="lp">
+                                </div>
+                                
+                                <div class="layui-form-item" style="margin-top: -10px;">
+                                    <input type="checkbox" name="rememberMe" title="记住我" lay-skin="primary">
+                                </div>
+                                <div class="layui-form-item">
+                                    <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit
+                                            lay-filter="login-submit" id="login" onclick="login()">
+                                        <i style="display: none"
+                                           class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                        立即登录
+                                    </button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.extend({
+        validate: 'login_data/js/lay/modules/validate'
+    }).use(['form', 'layer', 'validate'], function (form, layer) {
+        var $ = layui.jquery,
+            validate = layui.validate,
+            $view = $('#febs-login'),
+            type = 'login',
+            $loginDiv = $view.find('#login-div'),
+            $registDiv = $view.find('#regist-div');
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script th:src="@{/asserts/js/jquery-1.10.2.min.js}"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="icon" href="@{/asserts/img/basic/favicon.ico}" type="image/x-icon">
+    <title>Paper</title>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/asserts/css/app.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/dudulu.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/asserts/css/magic-check.css}">
+    <script th:src="@{/asserts/js/dudulu_user.js}"></script>
+    <style>
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F8FA;
+            z-index: 9998;
+            text-align: center;
+        }
+
+        .plane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body class="light">
+<!-- Pre loader -->
+<div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="app">
+    <aside class="main-sidebar fixed offcanvas shadow">
+        <section class="sidebar">
+            <div class="w-80px mt-3 mb-3 ml-3">
+                <img th:src="@{/asserts/img/basic/logo.png}" alt="">
+            </div>
+            <div class="relative">
+                <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
+                   aria-controls="userSettingsCollapse" class="btn-fab btn-fab-sm fab-right fab-top btn-primary shadow1 ">
+                    <i class="icon icon-cogs"></i>
+                </a>
+                <div class="user-panel p-3 light mb-2">
+                    <div>
+                        <div class="float-left image">
+                            <a th:href="@{/user/u_index}"><img class="user_avatar" th:src="@{'/'+${session.information.head}}" alt="User Image"></a>
+                        </div>
+                        <div class="float-left info">
+                            <h6 class="font-weight-light mt-2 mb-1">
+                                [[${session.information.name}]]
+                            </h6>
+                            <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="collapse multi-collapse" id="userSettingsCollapse">
+
+                        <div class="list-group mt-3 shadow">
+
+                            <a th:href="@{/user/logout}" class="list-group-item list-group-item-action"><i
+                                    class="mr-2 icon-security text-purple"></i>退出登陆</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header"><strong>企业人力资源管理系统</strong></li>
+                <li class="treeview no-b">
+                    <a th:href="@{/user/u_profile}">
+                        <i class="icon icon-account_box light-green-text s-18"></i>
+                        <span>个人信息</span>
+                    </a>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/attendance/u_list}">
+                        <i class="icon icon icon-package blue-text s-18"></i>
+                        <span>考勤</span>
+                    </a>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/wageinfo/u_list}">
+                        <i class="icon icon-dialpad blue-text  s-18"></i>
+                        <span>工资</span>
+                    </a>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/announcement/u_list}">
+                        <i class="icon icon-wpforms light-green-text s-18 "></i>
+                        <span>公告</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+<!--Sidebar End-->
+    <div class="has-sidebar-left">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark pt-2 pb-2 pl-4 pr-2">
+                    <div class="search-bar">
+                        <input class="transparent s-24 text-white b-0 font-weight-lighter w-128 height-50" type="text"
+                               placeholder="start typing...">
+                    </div>
+                    <a href="#" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-expanded="false"
+                       aria-label="Toggle navigation" class="paper-nav-toggle paper-nav-white active "><i></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky">
+            <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
+                <div class="relative">
+                    <a href="#" data-toggle="offcanvas" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <!--Top Menu Start -->
+
+            </div>
+        </div>
+    </div>
+<div class="page has-sidebar-left">
+    <header class="blue accent-3 relative nav-sticky">
+        <div class="container-fluid text-white">
+            <div class="row pb-3">
+                <div class="col">
+                    <h4>
+                        <i class="icon-pages"></i>
+                        工资
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <!--Style Start 3-->
+        <div class="row text-white no-gutters no-m shadow">
+            <div class="col-lg-3">
+                <div class="green counter-box p-40">
+                    <div class="float-right">
+                        <span class="icon icon-light-bulb s-48"></span>
+                    </div>
+                    <div class="sc-counter s-36" th:id="ududuluwage3">
+                        <script>
+                            uquerywage3("[[${session.information.id}]]","[[${session.information.id}]]");
+                        </script>
+                    </div>
+                    <h6 class="counter-title">待结算</h6>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="blue1 counter-box p-40">
+                    <div class="float-right">
+                        <span class="icon icon-target-12 s-48"></span>
+                    </div>
+                    <div class="sc-counter s-36" th:id="ududuluwage1">
+                        <script>
+                            uquerywage1("[[${session.information.id}]]","[[${session.information.id}]]");
+                        </script>
+                    </div>
+                    <h6 class="counter-title">考勤工资</h6>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="sunfollower counter-box p-40">
+                    <div class="float-right">
+                        <span class="icon icon-trophy7 s-48"></span>
+                    </div>
+                    <div class="sc-counter s-36" th:id="ududuluwage2">
+                        <script>
+                            uquerywage2("[[${session.information.id}]]","[[${session.information.id}]]");
+                        </script>
+                    </div>
+                    <h6 class="counter-title">奖惩金额</h6>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="strawberry counter-box p-40">
+                    <div class="float-right">
+                        <span class="icon icon-startup s-48"></span>
+                    </div>
+                    <div class="sc-counter s-36" th:id="ududuluwage4">
+                        <script>
+                            uquerywage4("[[${session.information.id}]]","[[${session.information.id}]]");
+                        </script>
+                    </div>
+                    <h6 class="counter-title">已结算工资</h6>
+                </div>
+            </div>
+        </div>
+        <!--Style End 3-->
+
+
+
+
+
+
+
+
+
+        </br>
+        <div class="card r-0 shadow">
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover data-tables" data-options='{"searching":false}'>
+                    <thead>
+                    <tr>
+                        <th>奖惩金额</th>
+                        <th>详情</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="info:${list_pirt}">
+                        <td>[[${info.val}]]</td>
+                        <td>[[${info.data}]]</td>
+                        <td>
+
+                            <script>
+                                var status="[[${info.status}]]";
+                                if(status=="已结算")
+                                {
+                                    document.write("<span class=\"badge badge-secondary\">已结算</span>")
+                                }
+                                else
+                                {
+                                    document.write("<span class=\"badge badge-primary\">待结算</span>")
+                                }
+                            </script>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    </div>
+</div>
+<!-- Right Sidebar -->
+<!-- /.right-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+<div class="control-sidebar-bg shadow white fixed"></div>
+</div>
+<!--/#app -->
+<script th:src="@{/asserts/js/app.js}"></script>
+<script th:src="@{/asserts/js/dudulu_user.js}"></script>
+</body>
+</html>

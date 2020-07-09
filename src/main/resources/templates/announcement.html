@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script th:src="@{/asserts/js/jquery-1.10.2.min.js}"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="icon" th:href="@{/asserts/img/basic/favicon.ico}" type="image/x-icon">
+    <title>Paper</title>
+    <!-- CSS -->
+    <link rel="stylesheet" th:href="@{/asserts/css/app.css}">
+    <link rel="stylesheet" th:href="@{/asserts/css/dudulu.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/asserts/css/magic-check.css}">
+    <style>
+        .loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #F5F8FA;
+            z-index: 9998;
+            text-align: center;
+        }
+
+        .plane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body class="light">
+<!-- Pre loader -->
+<div id="loader" class="loader">
+    <div class="plane-container">
+        <div class="preloader-wrapper small active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-red">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="app">
+    <aside class="main-sidebar fixed offcanvas shadow">
+        <section class="sidebar">
+            <div class="w-80px mt-3 mb-3 ml-3">
+                <img th:src="@{/asserts/img/basic/logo.png}" alt="">
+            </div>
+            <div class="relative">
+                <a data-toggle="collapse" href="#userSettingsCollapse" role="button" aria-expanded="false"
+                   aria-controls="userSettingsCollapse" class="btn-fab btn-fab-sm fab-right fab-top btn-primary shadow1 ">
+                    <i class="icon icon-cogs"></i>
+                </a>
+                <div class="user-panel p-3 light mb-2">
+                    <div>
+                        <div class="float-left image">
+                            <a th:href="@{/user/admin/index}"><img class="user_avatar" th:src="@{/asserts/img/dummy/u2.png}" alt="User Image"></a>
+                        </div>
+                        <div class="float-left info">
+                            <h6 class="font-weight-light mt-2 mb-1">root</h6>
+                            <a href="#"><i class="icon-circle text-primary blink"></i> Online</a>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="collapse multi-collapse" id="userSettingsCollapse">
+                        <div class="list-group mt-3 shadow">
+
+                            <a th:href="@{/user/logout}" class="list-group-item list-group-item-action"><i
+                                    class="mr-2 icon-security text-purple"></i>退出登陆</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="header"><strong>企业人力资源管理系统</strong></li>
+                <li class="treeview"><a th:href="@{/information/admin/list}">
+                    <i class="icon icon-sailing-boat-water purple-text s-18"></i> <span>员工管理</span></a>
+                </li>
+                <li class="treeview"><a href="#">
+                    <i class="icon icon icon-package blue-text s-18"></i>
+                    <span>考勤管理</span>
+                    <i class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/attendance/admin/list}"><i class="icon icon-circle-o"></i>考勤情况</a></li>
+                        <li><a th:href="@{/leave/admin/list}"><i class="icon icon-add"></i>请假通知 </a></li>
+                    </ul>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/wageinfo/admin/list}">
+                        <i class="icon icon-dialpad blue-text  s-18"></i>
+                        <span>工资管理</span>
+                    </a>
+                </li>
+                <li class="treeview no-b">
+                    <a th:href="@{/announcement/admin/list}">
+                        <i class="icon icon-wpforms light-green-text s-18 "></i>
+                        <span>公告管理</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </aside>
+    <!--Sidebar End-->
+    <div class="has-sidebar-left">
+        <div class="pos-f-t">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark pt-2 pb-2 pl-4 pr-2">
+                    <div class="search-bar">
+                        <input class="transparent s-24 text-white b-0 font-weight-lighter w-128 height-50" type="text"
+                               placeholder="start typing...">
+                    </div>
+                    <a href="#" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-expanded="false"
+                       aria-label="Toggle navigation" class="paper-nav-toggle paper-nav-white active "><i></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sticky">
+            <div class="navbar navbar-expand navbar-dark d-flex justify-content-between bd-navbar blue accent-3">
+                <div class="relative">
+                    <a href="#" data-toggle="offcanvas" class="paper-nav-toggle pp-nav-toggle">
+                        <i></i>
+                    </a>
+                </div>
+                <!--Top Menu Start -->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="page  has-sidebar-left height-full">
+        <header class="blue accent-3 relative">
+            <div class="container-fluid text-white">
+                <div class="row p-t-b-10 ">
+                    <div class="col">
+                        <h4>
+                            <i class="icon icon-wpforms light-green-text s-18 "></i>
+                            公告管理
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+<!--            <div class="dudulu3">-->
+<!--                <a th:href="@{/information/export}"><button type="button" class="btn btn-info btn-xs">导出EXCEL</button></a>-->
+<!--            </div>-->
+<!--            <div class="dudulu2">-->
+<!--                <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#user_upload'"><button type="button" class="btn btn-info btn-xs">导入EXCEL</button></a>-->
+<!--            </div>-->
+<!--            <div class="dudulu1">-->
+<!--                <a th:href="@{/information/download}+'?fileName=template.xlsx'"><button type="button" class="btn btn-info btn-xs">下载EXCEL模板</button></a>-->
+<!--            </div>-->
+
+
+        </header>
+
+<!--        嘟嘟噜的通知-->
+        <button hidden  class="btn btn-success btn-lg toast-action"
+                data-title=""
+                data-message=""
+                data-type="success"
+                data-position-class="toast-bottom-right" id=duduluinfo>abc
+
+        </button>
+
+        <div class="container-fluid animatedParent animateOnce p-0">
+            <div class="animated fadeInUpShort">
+                <div class="row no-gutters">
+
+                    <div class="col-md-9 b-l">
+                        <div class="m-md-3">
+                            <!--Message Start-->
+                            <span th:each="info:${list_pirt}">
+                            <div class="card b-0 m-2">
+                                <div class="card-body">
+                                    <div data-toggle="collapse" th:data-target="'#message'+${info.id}" aria-expanded="false" class="collapsed">
+                                        <div class="media">
+                                            <img class="d-flex mr-3 height-50" th:src="@{/asserts/img/dummy/u2.png}"
+                                                 alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1 font-weight-normal">发布者：root</h6>
+                                                <span>[[${info.title}]]</span>
+                                                <br>
+
+                                                <div class="my-3 collapse" th:id="'message'+${info.id}" style="">
+                                                    <div>
+                                                        [[${info.data}]]
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <br>
+                                                        <a th:href="'/crm/announcement/admin/del?id='+${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>
+                                                        &nbsp;&nbsp;
+                                                        <a href="javascript:void(0)" data-toggle="modal" th:data-target="'#mymodal_update'+${info.id}"><i class="icon-pencil"></i></a>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Attachments Start-->
+
+                                <!--Attachments End-->
+                            </div>
+                            </span>
+                            <!--Message End-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--Add New Message Fab Button-->
+        <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#user_add'" class="btn-fab btn-fab-md fab-right fab-right-bottom-fixed shadow btn-primary"><i
+                class="icon-add" ></i></a>
+        <!-- 模态框（Modal） -->
+        <div class="modal fade" id="user_add" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            发布公告
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form class="form-horizontal" role="form" th:action="@{/announcement/admin/add}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <div class="card-body">
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+
+                                            <div class="form-group m-0">
+                                                <label for="title" class="col-form-label s-12">*标题</label>
+                                                <input id="title" name="title" placeholder="输入标题" class="form-control r-0 light s-12 " type="text" required="required" >
+                                            </div>
+
+                                            <div class="form-group m-0">
+                                                <label class="col-form-label s-12">内容</label>
+                                                <textarea class="form-control" rows="15" name="data"></textarea>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        发布
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </div>
+
+
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的修改-->
+        <div class="modal fade" th:id="'mymodal_update' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            编辑公告
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" th:action="@{/announcement/admin/update}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <div class="card-body">
+
+                                    <div class="form-row">
+                                        <div class="col-md-8">
+
+                                            <input type="hidden" name="id" th:value="${info.id}"/>
+
+                                            <div class="form-group m-0">
+                                                <label for="title" class="col-form-label s-12">*标题</label>
+                                                <input name="title" placeholder="输入标题" class="form-control r-0 light s-12 " type="text" required="required" th:value="${info.title}">
+                                            </div>
+
+                                            <div class="form-group m-0">
+                                                <label class="col-form-label s-12">内容</label>
+                                                <textarea th:id="'textarea'+${info.id}" class="form-control" rows="15" name="data"></textarea>
+                                                <script>
+                                                    var to="#textarea[[${info.id}]]";
+                                                    $(to).html("[[${info.data}]]");
+                                                </script>
+                                            </div>
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        更新
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
+
+
+
+
+</div>
+<!-- Right Sidebar -->
+
+<!-- /.right-sidebar -->
+<!-- Add the sidebar's background. This div must be placed
+         immediately after the control sidebar -->
+<div class="control-sidebar-bg shadow white fixed"></div>
+</div>
+<!--/#app -->
+<script th:src="@{/asserts/js/app.js}" charset="utf-8"></script>
+<script th:src="@{/asserts/js/dudulu_user.js}" charset="utf-8"></script>
+<span th:if="${param.p1_data}">
+    <script>
+        $('#duduluinfo').attr("data-title","通知");
+        $('#duduluinfo').attr("data-message","[[${param.p1_data}]]");
+        $('#duduluinfo').attr("data-type","success");
+        $('#duduluinfo').click();
+    </script>
+</span>
+<span th:if="${param.p2_data}">
+    <script>
+        $('#duduluinfo').attr("data-title","通知");
+        $('#duduluinfo').attr("data-message","[[${param.p2_data}]]");
+        $('#duduluinfo').attr("data-type","error");
+        $('#duduluinfo').click();
+    </script>
+</span>
+<!--<script>-->
+<!--    $('#duduluinfo').click();-->
+
+<!--</script>-->
+</body>
+</html>

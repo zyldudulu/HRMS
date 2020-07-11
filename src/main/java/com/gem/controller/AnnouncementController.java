@@ -89,7 +89,7 @@ public class AnnouncementController {
      * @return java.lang.String
      * @Date 2020/7/9
      **/
-    @GetMapping("/admin/del")
+    @PostMapping("/admin/del")
     public String del(HttpServletRequest request) throws UnsupportedEncodingException {
         String id=request.getParameter("id");
         announcementService.removeById(id);

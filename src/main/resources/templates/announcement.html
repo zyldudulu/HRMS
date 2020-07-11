@@ -228,9 +228,10 @@
                                                         <br>
                                                         <br>
                                                         <br>
-                                                        <a th:href="'/crm/announcement/admin/del?id='+${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>
-                                                        &nbsp;&nbsp;
                                                         <a href="javascript:void(0)" data-toggle="modal" th:data-target="'#mymodal_update'+${info.id}"><i class="icon-pencil"></i></a>
+<!--                                                        <a th:href="'/crm/announcement/admin/del?id='+${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>-->
+                                                        &nbsp;&nbsp;
+                                                        <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#mymodal_del' + ${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>
                                                     </div>
 
                                                 </div>
@@ -367,6 +368,47 @@
                                     </button>
                                     <button type="submit" class="btn btn-success">
                                         更新
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
+
+
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的确认删除-->
+        <div class="modal fade" th:id="'mymodal_del' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            提示
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" th:action="@{/announcement/admin/del}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <input type="hidden" name="id" th:value="${info.id}"/>
+                                <b>您确认要删除该条信息吗？</b>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        确认
                                     </button>
                                 </div>
                             </div>

@@ -210,9 +210,10 @@
 
 
                             </br>
-                            <form class="form-horizontal" role="form" th:action="@{/wageinfo/admin/delmany}"
+<!--                            th:action="@{/wageinfo/admin/delmany}"-->
+                            <form class="form-horizontal" role="form"
                                   method="post">
-                                <button style="width:100px" type="submit" class="btn btn-danger btn-xs">批量删除</button>
+                                <button style="width:100px" type="submit" onclick="delmanywageinfo()" class="btn btn-danger btn-xs">批量删除</button>
                                 <div class="card r-0 shadow">
                                     <div class="table-responsive">
 
@@ -232,7 +233,22 @@
 
                                                 <td>
                                                     <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" th:id="'materialUnchecked'+${info.id}" th:name="${info.id}">
+                                                        <script>
+                                                            var status="[[${info.status}]]";
+                                                            var tmp="id=\"materialUnchecked"+"[[${info.id}]]"+"\"";
+                                                            var s1="<input type=\"checkbox\" class=\"form-check-input\" "+tmp+" name=\"[[${info.id}]]\" disabled=\"true\">";
+                                                            var s2="<input type=\"checkbox\" class=\"form-check-input\" "+tmp+" name=\"[[${info.id}]]\">";
+                                                            console.log(s1);
+                                                            console.log(s2);
+                                                            if(status=="已结算")
+                                                            {
+                                                                document.write(s1);
+                                                            }
+                                                            else
+                                                            {
+                                                                document.write(s2);
+                                                            }
+                                                        </script>
                                                         <label class="form-check-label" th:for="'materialUnchecked'+${info.id}">[[${info.id}]]</label>
                                                     </div>
                                                 </td>
@@ -256,8 +272,10 @@
                                                         {
                                                             var tmp1="\"#mymodal"+"[[${info.id}]]\"";
                                                             var s1="<a href=\"javascript:void(0)\" data-toggle=\"modal\" data-target="+tmp1+"\"><i class=\"icon-pencil\"></i></a>";
-                                                            var tmp2="\"[[@{/wageinfo/admin/del}]]?id="+"[[${info.id}]]\"";
-                                                            var s2="<a href="+tmp2+"><i class=\"icon-close2 text-danger-o text-danger\"></i></a>";
+                                                            // var tmp2="\"[[@{/wageinfo/admin/del}]]?id="+"[[${info.id}]]\"";
+                                                            // var s2="<a href="+tmp2+"><i class=\"icon-close2 text-danger-o text-danger\"></i></a>";
+                                                            var tmp2="\"#mymodal_del"+"[[${info.id}]]\"";
+                                                            var s2="<a href=\"javascript:void(0)\" data-toggle=\"modal\" data-target="+tmp2+"\"><i class=\"icon-close2 text-danger-o text-danger\"></i></a>";
                                                             document.write(" &nbsp;&nbsp;");
                                                             document.write(s1);
                                                             document.write(" &nbsp;&nbsp;");
@@ -403,6 +421,46 @@
                                     </button>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
+
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的确认删除-->
+        <div class="modal fade" th:id="'mymodal_del' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            提示
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" th:action="@{/wageinfo/admin/del}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <input type="hidden" name="id" th:value="${info.id}"/>
+                                <b>您确认要删除该条信息吗？</b>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        确认
+                                    </button>
+                                </div>
+                            </div>
+
+
                         </form>
                     </div>
                 </div><!-- /.modal-content -->

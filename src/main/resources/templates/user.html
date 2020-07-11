@@ -207,7 +207,7 @@
                 <div class="tab-pane animated fadeInUpShort show active" id="v-pills-all" role="tabpanel" aria-labelledby="v-pills-all-tab">
                     <div class="row my-3">
                         <div class="col-md-12">
-                            <form class="form-horizontal" role="form" th:action="@{/information/admin/search}"
+                            <form class="form-horizontal" role="form" th:action="@{/information/admin/search}" οnsubmit="return sumbit_form()"
                                   method="post">
                             <div class="zyl3">
                                 <input name="id_search" style="width:150px" class="form-control form-control-sm r-0" type="text" placeholder="员工编号" th:value="${id_search}">
@@ -225,9 +225,10 @@
 
 
                             </br>
-                            <form class="form-horizontal" role="form" th:action="@{/information/admin/delmany}"
+<!--                            th:action="@{/information/admin/delmany}"-->
+                            <form class="form-horizontal" role="form"
                                   method="post">
-                                <button style="width:100px" type="submit" class="btn btn-danger btn-xs">批量删除</button>
+                                <button style="width:100px" type="submit" onclick="delmanyuser()" class="btn btn-danger btn-xs">批量删除</button>
                                 <div class="card r-0 shadow">
                                     <div class="table-responsive">
 
@@ -262,7 +263,8 @@
                                                     &nbsp;&nbsp;
                                                     <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#mymodal_wage' + ${info.id}"><i class="icon-share-square-o text-success"></i></a>
                                                     &nbsp;&nbsp;
-                                                    <a th:href="@{/information/admin/del}+'?id='+${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>
+<!--                                                    <a th:href="@{/information/admin/del}+'?id='+${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>mymodal_del-->
+                                                    <a href="javascript:void(0)" data-toggle="modal" th:attr="data-target='#mymodal_del' + ${info.id}"><i class="icon-close2 text-danger-o text-danger"></i></a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -714,6 +716,45 @@
         </div>
     </span>
 
+
+
+    <span th:each="info:${list_pirt}">
+        <!--嘟嘟噜的确认删除-->
+        <div class="modal fade" th:id="'mymodal_del' + ${info.id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                         <h4 class="modal-title">
+                            提示
+                        </h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form" th:action="@{/information/admin/del}"
+                              method="post">
+
+                            <div class="card no-b  no-r">
+                                <input type="hidden" name="id" th:value="${info.id}"/>
+                                <b>您确认要删除该条信息吗？</b>
+                                <hr>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">取消
+                                    </button>
+                                    <button type="submit" class="btn btn-success">
+                                        确认
+                                    </button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal -->
+        </div>
+    </span>
 
 
 </div>

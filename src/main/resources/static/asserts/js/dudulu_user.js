@@ -98,3 +98,20 @@ function uquerywage4(id,idd){
         $(p).html(data);
     });
 }
+
+function delmanyuser() {
+    if(confirm("您确认要删除这些数据吗？")){
+        var form2=document.forms[1];
+        form2.action="http://localhost:8888/crm/information/admin/delmany";
+        form2.submit();
+    }
+}
+
+function delmanywageinfo() {
+    if(confirm("您确认要删除这些数据吗？")){
+        var form2=document.forms[1];
+        form2.action="http://localhost:8888/crm/wageinfo/admin/delmany";
+        form2.submit();
+    }
+}
+

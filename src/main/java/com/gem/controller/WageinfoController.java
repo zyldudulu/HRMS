@@ -87,7 +87,7 @@ public class WageinfoController {
      * @return java.lang.String
      * @Date 2020/7/9
      **/
-    @GetMapping("/admin/del")
+    @PostMapping("/admin/del")
     public String del(HttpServletRequest request) throws UnsupportedEncodingException {
         String id=request.getParameter("id");
         wageinfoService.removeById(id);
@@ -133,12 +133,13 @@ public class WageinfoController {
      **/
     @PostMapping("/admin/delmany")
     public String delmany(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-        List<Information>list=informationService.list(null);
+        List<Wageinfo>list=wageinfoService.list(null);
         if(list==null)return "redirect:/information/admin/list";
-        for(Information information:list) {
-            Long id=information.getId();
+        for(Wageinfo wageinfo:list) {
+            Long id=wageinfo.getId();
             String sid=String.valueOf(id);
             String s=request.getParameter(sid);
+            System.out.println(s==null);
             if(s!=null) wageinfoService.removeById(id);
         }
         return "redirect:/wageinfo/admin/list?p1_data="+ URLEncoder.encode("批量删除成功","UTF-8");

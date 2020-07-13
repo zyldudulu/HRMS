@@ -3,16 +3,99 @@
   <component name="ChangeListManager">
     <list default="true" id="c8870cf4-5d00-4c19-b162-8c0553b139fd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/information.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/file/information.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/template.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/file/template.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gem/controller/AnnouncementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gem/controller/AnnouncementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gem/controller/InformationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gem/controller/InformationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gem/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gem/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gem/controller/WageinfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gem/controller/WageinfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/asserts/js/dudulu_user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/asserts/js/dudulu_user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/announcement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gem/entity/Information.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gem/entity/Information.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/leave.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/leave.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/u_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/u_profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wageinfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wageinfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/gem/mapper/InformationMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/gem/mapper/InformationMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/crm.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gem/controller/AnnouncementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gem/controller/AnnouncementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gem/controller/InformationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gem/controller/InformationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gem/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gem/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/gem/controller/WageinfoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gem/controller/WageinfoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/gem/entity/Information.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/gem/entity/Information.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/css/layui.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/css/layui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/css/magic-check.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/css/magic-check.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/abt.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/abt.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/apex.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/apex.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/auto.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/auto.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/bos.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/bos.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/chat.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/chat.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/cix.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/cix.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/coqui.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/coqui.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/crw.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/crw.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/cs.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/cs.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/dcn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/dcn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/deez.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/deez.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/dnr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/dnr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/eca.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/eca.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/ela.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/ela.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/equa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/equa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/etc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/etc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/exp.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/exp.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/fsn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/fsn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/gas.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/gas.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/grc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/grc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/itc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/itc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/med.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/med.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/mith.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/mith.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/mona.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/mona.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/mzc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/mzc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/nano.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/nano.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/neo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/neo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/nio.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/nio.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/oot.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/oot.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/rvn.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/rvn.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/sc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/sc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/slr.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/slr.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/sumo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/sumo.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/ten.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/ten.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/vtc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/vtc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/wan.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/wan.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/wtc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/wtc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/xpa.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/xpa.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/zel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/color/zel.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/svg/cenz.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/svg/cenz.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/svg/ltc.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/icons/svg/ltc.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/paperIcons.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/paperIcons.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-100.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-100.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-100italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-100italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-300.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-300.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-300italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-300italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-500.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-500.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-500italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-500italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-700.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-700.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-700italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-700italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-900.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-900.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-900italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-900italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/fonts/roboto/roboto-v16-latin-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/js/jquery-1.10.2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/js/jquery-1.10.2.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/js/layui.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/js/layui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/Exception.php" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/Exception.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/OAuth.php" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/OAuth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/PHPMailer.php" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/PHPMailer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/POP3.php" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/POP3.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/SMTP.php" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/asserts/php/phpMailer/SMTP.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/leave.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/leave.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/u_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/u_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/u_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/u_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/u_wageinfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/u_wageinfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/gem/mapper/InformationMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/gem/mapper/InformationMapperTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +116,17 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="zyldudulu &lt;3026302624@qq.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="E:/java/apache-maven-3.5.4" />
+        <option name="mavenHome" value="E:/project/java/apache-maven-3.5.4" />
         <option name="userSettingsFile" value="E:\project\java\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -78,7 +166,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editing.templates" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -272,12 +360,42 @@
       <workItem from="1594310367000" duration="490000" />
       <workItem from="1594382686384" duration="1049000" />
       <workItem from="1594393207280" duration="598000" />
-      <workItem from="1594432610492" duration="11128000" />
+      <workItem from="1594432610492" duration="13772000" />
+      <workItem from="1594531340903" duration="10000" />
+      <workItem from="1594533997632" duration="1095000" />
+      <workItem from="1594557723364" duration="4305000" />
+      <workItem from="1594567021960" duration="2790000" />
+      <workItem from="1594598614198" duration="2932000" />
     </task>
+    <task id="LOCAL-00001" summary="v1.0">
+      <created>1594481403259</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594481403259</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="v1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1159" y="507" key="#com.intellij.codeInsight.template.impl.EditVariableDialog" timestamp="1594282434364">
@@ -288,6 +406,10 @@
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
     <state x="1145" y="307" key="#com.intellij.ide.util.MemberChooser/73.0.1975.1152@73.0.1975.1152" timestamp="1594129313546" />
+    <state x="678" y="173" key="CommitChangelistDialog2" timestamp="1594481400257">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="678" y="173" key="CommitChangelistDialog2/73.0.1975.1152@73.0.1975.1152" timestamp="1594481400257" />
     <state x="1335" y="323" key="FileChooserDialogImpl" timestamp="1594310559384">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
@@ -300,47 +422,51 @@
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
     <state x="843" y="284" key="Github.UntrackedFilesDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594310853023" />
-    <state width="1933" height="212" key="GridCell.Tab.0.bottom" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.0.bottom" timestamp="1594600490363">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.0.bottom/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state width="1933" height="212" key="GridCell.Tab.0.center" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.0.bottom/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490363" />
+    <state width="1933" height="255" key="GridCell.Tab.0.center" timestamp="1594600490362">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.0.center/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state width="1933" height="212" key="GridCell.Tab.0.left" timestamp="1594481243270">
+    <state width="1933" height="255" key="GridCell.Tab.0.center/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490362" />
+    <state width="1933" height="255" key="GridCell.Tab.0.left" timestamp="1594600490362">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.0.left/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243270" />
-    <state width="1933" height="212" key="GridCell.Tab.0.right" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.0.left/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490362" />
+    <state width="1933" height="255" key="GridCell.Tab.0.right" timestamp="1594600490362">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.0.right/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state width="1933" height="212" key="GridCell.Tab.1.bottom" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.0.right/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490362" />
+    <state width="1933" height="255" key="GridCell.Tab.1.bottom" timestamp="1594600490363">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.1.bottom/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state width="1933" height="212" key="GridCell.Tab.1.center" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.1.bottom/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490363" />
+    <state width="1933" height="255" key="GridCell.Tab.1.center" timestamp="1594600490363">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.1.center/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state width="1933" height="212" key="GridCell.Tab.1.left" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.1.center/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490363" />
+    <state width="1933" height="255" key="GridCell.Tab.1.left" timestamp="1594600490363">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.1.left/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state width="1933" height="212" key="GridCell.Tab.1.right" timestamp="1594481243271">
+    <state width="1933" height="255" key="GridCell.Tab.1.left/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490363" />
+    <state width="1933" height="255" key="GridCell.Tab.1.right" timestamp="1594600490363">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state width="1933" height="212" key="GridCell.Tab.1.right/73.0.1975.1152@73.0.1975.1152" timestamp="1594481243271" />
-    <state x="806" y="228" width="1242" height="709" key="SettingsEditor" timestamp="1594282435654">
+    <state width="1933" height="255" key="GridCell.Tab.1.right/73.0.1975.1152@73.0.1975.1152" timestamp="1594600490363" />
+    <state x="583" y="191" width="1242" height="709" key="SettingsEditor" timestamp="1594534948619">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
-    <state x="806" y="228" width="1242" height="709" key="SettingsEditor/73.0.1975.1152@73.0.1975.1152" timestamp="1594282435654" />
-    <state x="645" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1594432616194">
+    <state x="583" y="191" width="1242" height="709" key="SettingsEditor/73.0.1975.1152@73.0.1975.1152" timestamp="1594534948619" />
+    <state x="654" y="312" key="Vcs.Push.Dialog.v2" timestamp="1594481408643">
+      <screen x="73" y="0" width="1975" height="1152" />
+    </state>
+    <state x="654" y="312" key="Vcs.Push.Dialog.v2/73.0.1975.1152@73.0.1975.1152" timestamp="1594481408643" />
+    <state x="645" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1594598620262">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>
     <state x="386" y="617" key="com.intellij.ide.util.TipDialog/73.0.1079.2048@73.0.1079.2048" timestamp="1594382690355" />
-    <state x="645" y="347" key="com.intellij.ide.util.TipDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594432616194" />
+    <state x="645" y="347" key="com.intellij.ide.util.TipDialog/73.0.1975.1152@73.0.1975.1152" timestamp="1594598620262" />
     <state x="724" y="253" width="672" height="678" key="search.everywhere.popup" timestamp="1594221936474">
       <screen x="73" y="0" width="1975" height="1152" />
     </state>

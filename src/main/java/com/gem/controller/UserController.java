@@ -109,7 +109,8 @@ public class UserController {
         String p3=request.getParameter("password3");
         User user=userService.getById(1);
         if(!user.getPassword().equals(crypt(p1))) return "redirect:/user/admin/index?p2_data="+ URLEncoder.encode("原密码错误","UTF-8");
-        else if(!p2.equals(p3))return "redirect:/user/admin/index?p2_data="+ URLEncoder.encode("两次密码不一致","UTF-8");
+        if(p2.length()<6||p2.length()>16)return "redirect:/user/admin/index?p2_data="+ URLEncoder.encode("新密码不合法，请重新填写","UTF-8");
+        if(!p2.equals(p3))return "redirect:/user/admin/index?p2_data="+ URLEncoder.encode("两次密码不一致","UTF-8");
         user.setPassword(crypt(p2));
         userService.updateById(user);
         session.setAttribute("user",user);
@@ -130,7 +131,8 @@ public class UserController {
         String p3=request.getParameter("password3");
         User user=(User)session.getAttribute("user");
         if(!user.getPassword().equals(crypt(p1))) return "redirect:/user/u_index?p2_data="+ URLEncoder.encode("原密码错误","UTF-8");
-        else if(!p2.equals(p3)) return "redirect:/user/u_index?p2_data="+ URLEncoder.encode("两次密码不一致","UTF-8");
+        if(p2.length()<6||p2.length()>16)return "redirect:/user/admin/index?p2_data="+ URLEncoder.encode("新密码不合法，请重新填写","UTF-8");
+        if(!p2.equals(p3)) return "redirect:/user/u_index?p2_data="+ URLEncoder.encode("两次密码不一致","UTF-8");
         user.setPassword(crypt(p2));
         userService.updateById(user);
         session.setAttribute("user",user);

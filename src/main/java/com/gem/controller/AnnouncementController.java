@@ -74,6 +74,8 @@ public class AnnouncementController {
     public String add(HttpServletRequest request) throws UnsupportedEncodingException {
         String title=request.getParameter("title");
         String data=request.getParameter("data");
+        if(title.length()<2||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
+        if(data.length()<2||data.length()>500)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
         Announcement announcement=new Announcement();
         announcement.setTitle(title);
         announcement.setData(data);
@@ -108,6 +110,8 @@ public class AnnouncementController {
         String id=request.getParameter("id");
         String title=request.getParameter("title");
         String data=request.getParameter("data");
+        if(title.length()<2||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
+        if(data.length()<2||data.length()>500)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
         Announcement announcement=new Announcement();
         announcement.setId(new Long(id));
         announcement.setTitle(title);

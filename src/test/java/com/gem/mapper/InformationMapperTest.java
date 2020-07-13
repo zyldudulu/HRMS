@@ -26,7 +26,7 @@ class InformationMapperTest {
         LocalDate localDate = LocalDate.of(2019,1,1);
         information.setBirthday(localDate);
         information.setPhone("177");
-        information.setAddress("zibo");
+        information.setEmail("zibo");
         information.setDepartment("tencent");
         information.setWage(new Long(300000));
         information.setEntry(localDate);

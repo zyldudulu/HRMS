@@ -529,8 +529,8 @@
                                                     <input name="phone" th:value="${info.phone}" placeholder="输入电话" class="form-control r-0 light s-12 date-picker" type="text" required="required">
                                                 </div>
                                                 <div class="form-group col-6 m-0">
-                                                    <label  class="col-form-label s-12">*地址</label>
-                                                    <input name="address" th:value="${info.address}" placeholder="输入地址" class="form-control r-0 light s-12 datePicker" data-time-picker="false"
+                                                    <label  class="col-form-label s-12">*邮箱</label>
+                                                    <input name="address" th:value="${info.email}" placeholder="输入邮箱" class="form-control r-0 light s-12 datePicker" data-time-picker="false"
                                                            type="text" required="required">
                                                 </div>
                                             </div>
@@ -624,7 +624,7 @@
 
                                 <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong class="s-12">联系方式</strong></li>
                                 <li class="list-group-item"><strong class="s-12">电话</strong> <span class="float-right s-12">[[${info.phone}]]</span></li>
-                                <li class="list-group-item"><strong class="s-12">地址</strong> <span class="float-right s-12">[[${info.address}]]</span></li>
+                                <li class="list-group-item"><strong class="s-12">邮箱</strong> <span class="float-right s-12">[[${info.email}]]</span></li>
                             </ul>
                         </div>
 

@@ -87,7 +87,7 @@ public class Information {
         this.phone = phone;
     }
 
-    public void setAddress(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
@@ -127,7 +127,7 @@ public class Information {
         return phone;
     }
 
-    public String getAddress() {
+    public String getEmail() {
         return email;
     }
 

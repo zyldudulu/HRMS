@@ -75,6 +75,7 @@ public class InformationController {
         String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
         if(swage.matches(regex)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资格式不合法","UTF-8");
         double wage=Double.parseDouble(swage);
+        if(wage<0||wage>1000000000)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资不合法","UTF-8");
         String sbirthday=request.getParameter("birthday");
         LocalDate birthday = LocalDate.parse(sbirthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String sentry=request.getParameter("entry");
@@ -83,14 +84,16 @@ public class InformationController {
         String pattern = "^1[\\d]{10}";
         boolean isMatch = Pattern.matches(pattern, phone);
         if(!isMatch)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("手机号不合法","UTF-8");
-        String address=request.getParameter("address");
+        String email=request.getParameter("address");
+        String match_email="^(\\w+((-\\w+)|(\\.\\w+))*)\\+\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
+        if(email.matches(match_email)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("邮箱不合法","UTF-8");
         Information information=new Information();
         information.setHead("default.jpg");
         information.setName(name);
         information.setGender(gender);
         information.setBirthday(birthday);
         information.setPhone(phone);
-        information.setAddress(address);
+        information.setEmail(email);
         information.setDepartment(department);
         information.setWage(wage);
         information.setEntry(entry);
@@ -139,12 +142,14 @@ public class InformationController {
         String sid=request.getParameter("id");
         Long id=new Long(sid);
         String name=request.getParameter("name");
+        if(name.length()<2||name.length()>25)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("姓名不合法","UTF-8");
         String gender=request.getParameter("gender");
         String department=request.getParameter("department");
         String swage=request.getParameter("wage");
         String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
         if(swage.matches(regex)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资格式不合法","UTF-8");
-        Long wage=new Long(swage);
+        Double wage=Double.parseDouble(swage);
+        if(wage<0||wage>1000000000)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资不合法","UTF-8");
         String sbirthday=request.getParameter("birthday");
         LocalDate birthday = LocalDate.parse(sbirthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String sentry=request.getParameter("entry");
@@ -154,15 +159,16 @@ public class InformationController {
         String pattern = "^1[\\d]{10}";
         boolean isMatch = Pattern.matches(pattern, phone);
         if(!isMatch)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("手机号不合法","UTF-8");
-        String address=request.getParameter("address");
-        Information information=new Information();
+        String email=request.getParameter("address");
+        String match_email="^(\\w+((-\\w+)|(\\.\\w+))*)\\+\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
+        if(email.matches(match_email)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("邮箱不合法","UTF-8");
+        Information information=informationService.getById(id);
         information.setId(id);
-        information.setHead("default.jpg");
         information.setName(name);
         information.setGender(gender);
         information.setBirthday(birthday);
         information.setPhone(phone);
-        information.setAddress(address);
+        information.setEmail(email);
         information.setDepartment(department);
         information.setWage(wage);
         information.setEntry(entry);
@@ -251,7 +257,7 @@ public class InformationController {
         list_title.add("性别");
         list_title.add("生日");
         list_title.add("电话");
-        list_title.add("地址");
+        list_title.add("邮箱");
         list_title.add("部门");
         list_title.add("工资");
         list_title.add("入职日期");
@@ -288,7 +294,7 @@ public class InformationController {
             cell.setCellValue(information.getPhone());
 
             cell=row.createCell(cellNum++);
-            cell.setCellValue(information.getAddress());
+            cell.setCellValue(information.getEmail());
 
             cell=row.createCell(cellNum++);
             cell.setCellValue(information.getDepartment());
@@ -347,7 +353,7 @@ public class InformationController {
                             else if(cnt==2)information.setGender(val);
                             else if(cnt==3)information.setBirthday(LocalDate.parse(val, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
                             else if(cnt==4)information.setPhone(val);
-                            else if(cnt==5)information.setAddress(val);
+                            else if(cnt==5)information.setEmail(val);
                             else if(cnt==6)information.setDepartment(val);
                             else if(cnt==7)information.setWage(new Long(val));
                             else if(cnt==8)information.setEntry(LocalDate.parse(val, DateTimeFormatter.ofPattern("yyyy-MM-dd")));

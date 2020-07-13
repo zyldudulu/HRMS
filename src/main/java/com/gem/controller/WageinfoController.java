@@ -70,7 +70,7 @@ public class WageinfoController {
         if(sval.matches(regex)==false)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("奖惩金额不合法，请重新输入","UTF-8");
         double val=Double.parseDouble(sval);
         if(val<-1000000000||val>1000000000)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("奖惩金额不合法，请重新输入","UTF-8");
-        if(data.length()<2||data.length()>100)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("内容不合法，请重新输入","UTF-8");
+        if(data.length()<0||data.length()>100)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("内容不合法，请重新输入","UTF-8");
         Wageinfo wageinfo=new Wageinfo();
         wageinfo.setId((long)1);
         wageinfo.setUid((long) Integer.parseInt(uid));
@@ -118,7 +118,7 @@ public class WageinfoController {
         if(sval.matches(regex)==false)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("奖惩金额不合法，请重新输入","UTF-8");
         double val=Double.parseDouble(sval);
         if(val<-1000000000||val>1000000000)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("奖惩金额不合法，请重新输入","UTF-8");
-        if(data.length()<2||data.length()>100)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("内容不合法，请重新输入","UTF-8");
+        if(data.length()<0||data.length()>100)return "redirect:/wageinfo/admin/list?p2_data="+ URLEncoder.encode("内容不合法，请重新输入","UTF-8");
         Wageinfo wageinfo=wageinfoService.getById(id);
         wageinfo.setUid((long) Integer.parseInt(uid));
         wageinfo.setVal(val);

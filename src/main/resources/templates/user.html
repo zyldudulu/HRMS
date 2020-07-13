@@ -8,7 +8,7 @@
     <script th:src="@{/asserts/js/jquery-1.10.2.min.js}"></script>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" >
     <link rel="icon" th:href="@{/asserts/img/basic/favicon.ico}" type="image/x-icon">
-    <title>Paper</title>
+    <title>HRMS</title>
     <!-- CSS -->
     <link rel="stylesheet" th:href="@{/asserts/css/app.css}">
     <link rel="stylesheet" th:href="@{/asserts/css/dudulu.css}">
@@ -611,15 +611,6 @@
                                 <li class="list-group-item"><strong class="s-12">工号</strong> <span class="float-right s-12">[[${info.id}]]</span></li>
                                 <li class="list-group-item"><strong class="s-12">部门</strong> <span class="float-right s-12">[[${info.department}]]</span></li>
                                 <li class="list-group-item"><strong class="s-12">工资</strong> <span class="float-right s-12">[[${info.wage}]]</span></li>
-                                <li class="list-group-item"><strong class="s-12">累计工资</strong> <span class="float-right s-12">
-                                    <script>
-                                        var entryDayTime = new Date("[[${info.entry}]]").getTime();
-                                        var nowTime = new Date().getTime();
-                                        var mouth=Math.floor((nowTime-birthDayTime)/2592000000);
-                                        var wage=mouth*[[${info.wage}]];
-                                        document.write(wage+"");
-                                    </script>
-                                </span></li>
                                 <li class="list-group-item"><strong class="s-12">入职时间</strong> <span class="float-right s-12">[[${info.entry}]]</span></li>
 
                                 <li class="list-group-item"><i class="icon icon-mail text-success"></i><strong class="s-12">联系方式</strong></li>

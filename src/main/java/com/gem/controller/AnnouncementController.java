@@ -44,6 +44,7 @@ public class AnnouncementController {
         wrapper.orderByDesc("id");
         List<Announcement> list=announcementService.list(wrapper);
         model.addAttribute("list_pirt",list);
+        System.out.println(list);
         return "announcement";
     }
 
@@ -74,6 +75,8 @@ public class AnnouncementController {
     public String add(HttpServletRequest request) throws UnsupportedEncodingException {
         String title=request.getParameter("title");
         String data=request.getParameter("data");
+        data=data.replace("\r","<br>");
+        data=data.replace("\n","<br>");
         if(title.length()<2||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
         if(data.length()<2||data.length()>500)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
         Announcement announcement=new Announcement();

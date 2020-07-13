@@ -25,6 +25,7 @@ import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.gem.util.MD5Util.crypt;
@@ -53,8 +54,9 @@ public class InformationController {
      * @Date 2020/7/9
      **/
     @GetMapping("/admin/list")
-    public String list(Model model) {
+    public String list(Model model,HttpSession session) {
         List<Information> list=informationService.list(null);
+        session.setAttribute("list_prit",list);
         model.addAttribute("list_pirt",list);
         return "user";
     }
@@ -72,21 +74,32 @@ public class InformationController {
         String gender=request.getParameter("gender");
         String department=request.getParameter("department");
         String swage=request.getParameter("wage");
-        String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
-        if(swage.matches(regex)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资格式不合法","UTF-8");
-        double wage=Double.parseDouble(swage);
-        if(wage<0||wage>1000000000)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资不合法","UTF-8");
         String sbirthday=request.getParameter("birthday");
         LocalDate birthday = LocalDate.parse(sbirthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String sentry=request.getParameter("entry");
         LocalDate entry = LocalDate.parse(sentry, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String phone=request.getParameter("phone");
+        String email=request.getParameter("address");
+
+        //姓名
+        if(name.length()<1||name.length()>15)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("姓名不合法","UTF-8");
+        //部门
+        if(department.length()<1||department.length()>15)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("部门不合法","UTF-8");
+        //工资
+        String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
+        if(swage.matches(regex)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资格式不合法","UTF-8");
+        double wage=Double.parseDouble(swage);
+        if(wage<0||wage>1000000000)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资不合法","UTF-8");
+        //手机号
         String pattern = "^1[\\d]{10}";
         boolean isMatch = Pattern.matches(pattern, phone);
         if(!isMatch)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("手机号不合法","UTF-8");
-        String email=request.getParameter("address");
-        String match_email="^(\\w+((-\\w+)|(\\.\\w+))*)\\+\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
-        if(email.matches(match_email)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("邮箱不合法","UTF-8");
+        //邮箱
+        String regEx = "[a-zA-Z_]{0,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}";
+        Pattern epattern = Pattern.compile(regEx);
+        Matcher matcher = epattern.matcher(email);
+        if(matcher.matches()==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("邮箱不合法","UTF-8");
+
         Information information=new Information();
         information.setHead("default.jpg");
         information.setName(name);
@@ -142,26 +155,36 @@ public class InformationController {
         String sid=request.getParameter("id");
         Long id=new Long(sid);
         String name=request.getParameter("name");
-        if(name.length()<2||name.length()>25)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("姓名不合法","UTF-8");
         String gender=request.getParameter("gender");
         String department=request.getParameter("department");
         String swage=request.getParameter("wage");
-        String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
-        if(swage.matches(regex)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资格式不合法","UTF-8");
-        Double wage=Double.parseDouble(swage);
-        if(wage<0||wage>1000000000)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资不合法","UTF-8");
         String sbirthday=request.getParameter("birthday");
         LocalDate birthday = LocalDate.parse(sbirthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String sentry=request.getParameter("entry");
         LocalDate entry = LocalDate.parse(sentry, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String phone=request.getParameter("phone");
         String resertcheck=request.getParameter("ResertCheck");
+        String email=request.getParameter("address");
+
+        //姓名
+        if(name.length()<1||name.length()>15)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("姓名不合法","UTF-8");
+        //部门
+        if(department.length()<1||department.length()>15)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("部门不合法","UTF-8");
+        //工资
+        String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
+        if(swage.matches(regex)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资格式不合法","UTF-8");
+        double wage=Double.parseDouble(swage);
+        if(wage<0||wage>1000000000)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("工资不合法","UTF-8");
+        //手机号
         String pattern = "^1[\\d]{10}";
         boolean isMatch = Pattern.matches(pattern, phone);
         if(!isMatch)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("手机号不合法","UTF-8");
-        String email=request.getParameter("address");
-        String match_email="^(\\w+((-\\w+)|(\\.\\w+))*)\\+\\w+((-\\w+)|(\\.\\w+))*\\@[A-Za-z0-9]+((\\.|-)[A-Za-z0-9]+)*\\.[A-Za-z0-9]+$";
-        if(email.matches(match_email)==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("邮箱不合法","UTF-8");
+        //邮箱
+        String regEx = "[a-zA-Z_]{0,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}";
+        Pattern epattern = Pattern.compile(regEx);
+        Matcher matcher = epattern.matcher(email);
+        if(matcher.matches()==false)return "redirect:/information/admin/list?p2_data="+ URLEncoder.encode("邮箱不合法","UTF-8");
+
         Information information=informationService.getById(id);
         information.setId(id);
         information.setName(name);
@@ -212,7 +235,7 @@ public class InformationController {
      * @Date 2020/7/9
      **/
     @PostMapping("admin/search")
-    public String search(HttpServletRequest request,Model model) {
+    public String search(HttpServletRequest request,Model model,HttpSession session) {
         String id=request.getParameter("id_search");
         String name=request.getParameter("name_search");
         String department=request.getParameter("department_search");
@@ -225,6 +248,7 @@ public class InformationController {
         model.addAttribute("name_search",name);
         model.addAttribute("department_search",department);
         model.addAttribute("list_pirt",list);
+        session.setAttribute("list_prit",list);
         return "user";
     }
 
@@ -236,7 +260,7 @@ public class InformationController {
      * @Date 2020/7/9
      **/
     @GetMapping("/admin/export")
-    public String export() {
+    public String export(HttpSession session) {
         // 1. 创建工作簿
         XSSFWorkbook workbook = new XSSFWorkbook();
         // 2. 创建工作表
@@ -261,8 +285,8 @@ public class InformationController {
         list_title.add("部门");
         list_title.add("工资");
         list_title.add("入职日期");
-        List<Information>list=informationService.list(null);
-
+        //List<Information>list=informationService.list(null);
+        List<Information>list=(List<Information>) session.getAttribute("list_prit");
         //4. 遍历数据写入表中
         int rowNum = 0;
         int cellNum=0;
@@ -334,12 +358,21 @@ public class InformationController {
             Iterator<Row> rowIterable = sheet.iterator();
             boolean flag=true;
             int cnt=0;
+            String name=null,gender=null,department=null,swage=null,sbirthday=null,sentry=null,phone=null,email=null;
             while (rowIterable.hasNext()){
                 Row row = rowIterable.next();
                 // 逐列遍历
                 Iterator<Cell> cellIterator = row.cellIterator();
                 Information information=new Information();
                 cnt=0;
+                name=null;
+                gender=null;
+                department=null;
+                swage=null;
+                sbirthday=null;
+                sentry=null;
+                phone=null;
+                email=null;
                 while (cellIterator.hasNext()){
                     Cell cell = cellIterator.next();
                     if(flag)continue;
@@ -349,19 +382,53 @@ public class InformationController {
                         case Cell.CELL_TYPE_STRING:
                             cnt++;
                             String val=cell.getStringCellValue();
-                            if(cnt==1)information.setName(val);
-                            else if(cnt==2)information.setGender(val);
-                            else if(cnt==3)information.setBirthday(LocalDate.parse(val, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-                            else if(cnt==4)information.setPhone(val);
-                            else if(cnt==5)information.setEmail(val);
-                            else if(cnt==6)information.setDepartment(val);
-                            else if(cnt==7)information.setWage(new Long(val));
-                            else if(cnt==8)information.setEntry(LocalDate.parse(val, DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                            if(cnt==1)name=val;
+                            else if(cnt==2)gender=val;
+                            else if(cnt==3)sbirthday=val;
+                            else if(cnt==4)phone=val;
+                            else if(cnt==5)email=val;
+                            else if(cnt==6)department=val;
+                            else if(cnt==7)swage=val;
+                            else if(cnt==8)sentry=val;
                             break;
                     }
                 }
-                information.setHead("default.jpg");
-                if(information.getName()!=null)informationService.save(information);
+                boolean check=true;
+                if(name==null||gender==null||sbirthday==null||phone==null||email==null||department==null||swage==null||sentry==null)check=false;
+                else{
+                    //姓名
+                    if(name.length()<1||name.length()>15)check=false;
+                    //部门
+                    if(department.length()<1||department.length()>15)check=false;
+                    //工资
+                    String regex = "^(-?[1-9]\\d*\\.?\\d*)|(-?0\\.\\d*[1-9])|(-?[0])|(-?[0]\\.\\d*)$";
+                    if(swage.matches(regex)==false)check=false;
+                    double wage=Double.parseDouble(swage);
+                    if(wage<0||wage>1000000000)check=false;
+                    //手机号
+                    String pattern = "^1[\\d]{10}";
+                    boolean isMatch = Pattern.matches(pattern, phone);
+                    if(!isMatch)check=false;
+                    //邮箱
+                    String regEx = "[a-zA-Z_]{0,}[0-9]{0,}@(([a-zA-z0-9]-*){1,}\\.){1,3}[a-zA-z\\-]{1,}";
+                    Pattern epattern = Pattern.compile(regEx);
+                    Matcher matcher = epattern.matcher(email);
+                    if(matcher.matches()==false)check=false;
+                    if(check){
+                        LocalDate birthday = LocalDate.parse(sbirthday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                        LocalDate entry = LocalDate.parse(sentry, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                        information.setHead("default.jpg");
+                        information.setName(name);
+                        information.setGender(gender);
+                        information.setBirthday(birthday);
+                        information.setPhone(phone);
+                        information.setEmail(email);
+                        information.setDepartment(department);
+                        information.setWage(wage);
+                        information.setEntry(entry);
+                        informationService.save(information);
+                    }
+                }
                 flag=false;
             }
             file.close();

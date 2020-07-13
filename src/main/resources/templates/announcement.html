@@ -13,6 +13,7 @@
     <link rel="stylesheet" th:href="@{/asserts/css/app.css}">
     <link rel="stylesheet" th:href="@{/asserts/css/dudulu.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/asserts/css/magic-check.css}">
+    <script th:src="@{/asserts/js/dudulu_user.js}" charset="utf-8"></script>
     <style>
         .loader {
             position: fixed;
@@ -223,7 +224,9 @@
 
                                                 <div class="my-3 collapse" th:id="'message'+${info.id}" style="">
                                                     <div>
-                                                        [[${info.data}]]
+                                                        <script>
+                                                            document.write(duduluHTMLDecode("[[${info.data}]]"));
+                                                        </script>
                                                         <br>
                                                         <br>
                                                         <br>
@@ -293,6 +296,7 @@
 
 
 
+
                                         </div>
                                     </div>
                                 </div>
@@ -353,7 +357,10 @@
                                                 <textarea th:id="'textarea'+${info.id}" class="form-control" rows="15" name="data"></textarea>
                                                 <script>
                                                     var to="#textarea[[${info.id}]]";
-                                                    $(to).html("[[${info.data}]]");
+                                                    var reg=new RegExp("<br>","g"); //创建正则RegExp对象
+                                                    var val=duduluHTMLDecode("[[${info.data}]]");
+                                                    val=val.replace(reg,"\n");
+                                                    $(to).html(val);
                                                 </script>
                                             </div>
 

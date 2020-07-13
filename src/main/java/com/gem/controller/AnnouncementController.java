@@ -2,13 +2,16 @@ package com.gem.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.gem.entity.Announcement;
+import com.gem.entity.Information;
 import com.gem.service.AnnouncementService;
+import com.gem.util.MarkDown2HtmlUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,7 +47,6 @@ public class AnnouncementController {
         wrapper.orderByDesc("id");
         List<Announcement> list=announcementService.list(wrapper);
         model.addAttribute("list_pirt",list);
-        System.out.println(list);
         return "announcement";
     }
 
@@ -75,8 +77,8 @@ public class AnnouncementController {
     public String add(HttpServletRequest request) throws UnsupportedEncodingException {
         String title=request.getParameter("title");
         String data=request.getParameter("data");
-        data=data.replace("\r","<br>");
-        data=data.replace("\n","<br>");
+        data=data.replaceAll("\r\n","<br>");
+        data=data.replaceAll("\n","<br>");
         if(title.length()<2||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
         if(data.length()<2||data.length()>500)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
         Announcement announcement=new Announcement();
@@ -121,6 +123,14 @@ public class AnnouncementController {
         announcement.setData(data);
         announcementService.updateById(announcement);
         return "redirect:/announcement/admin/list?p1_data="+ URLEncoder.encode("更新成功","UTF-8");
+    }
+
+
+    @PostMapping("/markdown")
+    @ResponseBody
+    public String markdown(String s) {
+        s=MarkDown2HtmlUtils.markdown2Html(s);
+        return s;
     }
 
 }

@@ -123,15 +123,26 @@
                     <i class="icon icon-angle-left s-18 pull-right"></i></a>
                     <ul class="treeview-menu">
                         <li><a th:href="@{/attendance/admin/list}"><i class="icon icon-circle-o"></i>考勤情况</a></li>
-                        <li><a th:href="@{/leave/admin/list}"><i class="icon icon-add"></i>请假通知 </a></li>
+                        <li><a th:href="@{/leave/admin/list}"><i class="icon icon-circle-o"></i>请假通知 </a></li>
                     </ul>
                 </li>
-                <li class="treeview no-b">
-                    <a th:href="@{/wageinfo/admin/list}">
-                        <i class="icon icon-dialpad blue-text  s-18"></i>
-                        <span>工资管理</span>
-                    </a>
+
+                <li class="treeview"><a href="#">
+                    <i class="icon icon-dialpad blue-text  s-18"></i>
+                    <span>工资管理</span>
+                    <i class="icon icon-angle-left s-18 pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li><a th:href="@{/information/admin/list}"><i class="icon icon-circle-o"></i>工资计算</a></li>
+                        <li><a th:href="@{/wageinfo/admin/list}"><i class="icon icon-circle-o"></i>奖惩记录 </a></li>
+                    </ul>
                 </li>
+
+<!--                <li class="treeview no-b">-->
+<!--                    <a th:href="@{/wageinfo/admin/list}">-->
+<!--                        <i class="icon icon-dialpad blue-text  s-18"></i>-->
+<!--                        <span>工资管理</span>-->
+<!--                    </a>-->
+<!--                </li>-->
                 <li class="treeview no-b">
                     <a th:href="@{/announcement/admin/list}">
                         <i class="icon icon-wpforms light-green-text s-18 "></i>
@@ -225,7 +236,8 @@
                                                 <div class="my-3 collapse" th:id="'message'+${info.id}" style="">
                                                     <div>
                                                         <script>
-                                                            document.write(duduluHTMLDecode("[[${info.data}]]"));
+                                                            var val=duduluHTMLDecode("[[${info.mdata}]]");
+                                                            document.write(val);
                                                         </script>
                                                         <br>
                                                         <br>

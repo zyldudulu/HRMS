@@ -2,6 +2,7 @@ package com.gem.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.gem.entity.Announcement;
+import com.gem.entity.Announcement_markdown;
 import com.gem.entity.Information;
 import com.gem.service.AnnouncementService;
 import com.gem.util.MarkDown2HtmlUtils;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.gem.util.MarkDown2HtmlUtils.markdown2Html;
@@ -46,7 +48,17 @@ public class AnnouncementController {
         QueryWrapper<Announcement>wrapper=new QueryWrapper<>();
         wrapper.orderByDesc("id");
         List<Announcement> list=announcementService.list(wrapper);
-        model.addAttribute("list_pirt",list);
+        List<Announcement_markdown>list_mk=new ArrayList<>();
+        for(Announcement announcement:list)
+        {
+            String data=announcement.getData();
+            data=data.replaceAll("<br>","\n");
+            data=MarkDown2HtmlUtils.markdown2Html(data);
+            data=data.replaceAll("\n","<br>");
+            Announcement_markdown announcement_markdown=new Announcement_markdown(announcement.getId(),announcement.getTitle(),announcement.getData(),data);
+            list_mk.add(announcement_markdown);
+        }
+        model.addAttribute("list_pirt",list_mk);
         return "announcement";
     }
 
@@ -62,7 +74,17 @@ public class AnnouncementController {
         QueryWrapper<Announcement>wrapper=new QueryWrapper<>();
         wrapper.orderByDesc("id");
         List<Announcement> list=announcementService.list(wrapper);
-        model.addAttribute("list_pirt",list);
+        List<Announcement_markdown>list_mk=new ArrayList<>();
+        for(Announcement announcement:list)
+        {
+            String data=announcement.getData();
+            data=data.replaceAll("<br>","\n");
+            data=MarkDown2HtmlUtils.markdown2Html(data);
+            data=data.replaceAll("\n","<br>");
+            Announcement_markdown announcement_markdown=new Announcement_markdown(announcement.getId(),announcement.getTitle(),announcement.getData(),data);
+            list_mk.add(announcement_markdown);
+        }
+        model.addAttribute("list_pirt",list_mk);
         return "u_announcement";
     }
 
@@ -78,9 +100,8 @@ public class AnnouncementController {
         String title=request.getParameter("title");
         String data=request.getParameter("data");
         data=data.replaceAll("\r\n","<br>");
-        data=data.replaceAll("\n","<br>");
-        if(title.length()<2||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
-        if(data.length()<2||data.length()>500)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
+        if(title.length()<0||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
+        if(data.length()<0)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
         Announcement announcement=new Announcement();
         announcement.setTitle(title);
         announcement.setData(data);
@@ -115,8 +136,9 @@ public class AnnouncementController {
         String id=request.getParameter("id");
         String title=request.getParameter("title");
         String data=request.getParameter("data");
-        if(title.length()<2||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
-        if(data.length()<2||data.length()>500)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
+        data=data.replaceAll("\r\n","<br>");
+        if(title.length()<0||title.length()>25)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("标题不合法","UTF-8");
+        if(data.length()<0)return "redirect:/announcement/admin/list?p2_data="+ URLEncoder.encode("内容不合法","UTF-8");
         Announcement announcement=new Announcement();
         announcement.setId(new Long(id));
         announcement.setTitle(title);
@@ -125,12 +147,5 @@ public class AnnouncementController {
         return "redirect:/announcement/admin/list?p1_data="+ URLEncoder.encode("更新成功","UTF-8");
     }
 
-
-    @PostMapping("/markdown")
-    @ResponseBody
-    public String markdown(String s) {
-        s=MarkDown2HtmlUtils.markdown2Html(s);
-        return s;
-    }
 
 }

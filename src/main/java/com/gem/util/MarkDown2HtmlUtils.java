@@ -37,7 +37,9 @@ public class MarkDown2HtmlUtils {
 
     public static  void main(String[] args)
     {
-        String s="### abc<br>####abc";
+        String s="# 标题一\n" +
+                "## 标题二\n" +
+                "### 标题三";
         System.out.println(markdown2Html(s));
     }
 }
